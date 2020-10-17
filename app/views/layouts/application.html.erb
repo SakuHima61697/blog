@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Blog</title>
+    <title>ブログ</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,15 @@
   </head>
 
   <body>
+    <header>
+      <div class="link">
+        <ul>
+          <li><%= link_to("サインアップ", "/blog/signup
+          ") %></li>
+          <li><%= link_to("ログイン", "/blog/login") %></li>
+        </ul>
+      </div>
+    </header>
     <%= yield %>
   </body>
 </html>

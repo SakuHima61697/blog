@@ -1,0 +1,24 @@
+<h1>ユーザー登録</h1>
+
+<% @user.errors.full_messages.each do |message| %>
+    <div class="form-error">
+        <ul>
+            <li><%= message %></li>
+        </ul>
+    </div>
+<% end %>
+
+<%= form_tag(controller: "user", action: "create") do %>
+    <div class="signup-form">
+        <%= label_tag :ユーザー名%>
+        <%= text_field_tag :user_name %>
+        <%= label_tag :メールアドレス %>
+        <%= text_field_tag :email %>
+        <%= label_tag :パスワード %>
+        <%= password_field_tag :password %>
+        <%= label_tag :パスワード確認用 %>
+        <%= password_field_tag :password_confirmation %>
+        <br></br>
+        <%= submit_tag "登録" %>
+    </div>
+<% end %>
