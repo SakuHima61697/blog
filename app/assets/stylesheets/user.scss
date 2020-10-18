@@ -1,3 +1,35 @@
 // Place all the styles related to the user controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.user-show {
+    text-align: center;
+}
+.user-show-link {
+    display: inline-block;
+    text-align: center;
+}
+.user-edit-link {
+    text-align: center;
+}
+.user-edit {
+    text-align: center;
+}
+.user-edit-form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.user-index {
+    text-align: center;
+    width: 100%;
+    overflow: hidden;
+    display: table;
+}
+.profile-image-index {
+    display: inline-block;
+    margin: 20px auto 20px auto;
+}
+.user-name-index {
+    margin: 10px auto 40px auto;
+    text-align: center;
+}

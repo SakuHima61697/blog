@@ -13,12 +13,15 @@
     <header>
       <% if session[:user_id] %>
         <div class="link">
+          <li><%= link_to("ブログ一覧", "/blog/index") %></li>
+          <li><%= link_to("ユーザー一覧へ", "/blog/user/index") %></li>
           <li><%= link_to(@current_user.name, "/blog/user/#{@current_user.id}") %></li>
           <li><%= link_to("ログアウト", "/user/logout", {method: :post}) %></li>
         </div>
       <% else %>
         <div class="link">
           <ul>
+            <li><%= link_to("ブログ一覧", "/blog/index") %></li>
             <li><%= link_to("サインアップ", "/blog/signup") %></li>
             <li><%= link_to("ログイン", "/blog/login") %></li>
           </ul>

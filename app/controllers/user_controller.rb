@@ -1,5 +1,8 @@
 class UserController < ApplicationController
-  before_action :authenticate_user,{only:[:edit]}
+  before_action :authenticate_user, {only: [:edit, :update]}
+  before_action :forbid_login_user, {only: [:new, :create, :login,]}
+  before_action :ensure_correct_user, {only: [:edit, :update]}
+  
   def new
     @user = User.new
   end
@@ -57,6 +60,10 @@ class UserController < ApplicationController
     else
       render("user/edit")
     end
+  end
+  
+  def index
+    @users = User.all
   end
   
 end

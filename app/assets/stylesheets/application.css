@@ -16,9 +16,19 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+body {
+    background-color: #94c674;
+}
 .profile-image {
     width: 100px;
     height: 100px;
     object-fit: cover;
     border-radius: 50%;
+    display: inline-block;
+}
+.link {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
 }
