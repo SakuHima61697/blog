@@ -11,14 +11,25 @@
 
   <body>
     <header>
-      <div class="link">
-        <ul>
-          <li><%= link_to("サインアップ", "/blog/signup
-          ") %></li>
-          <li><%= link_to("ログイン", "/blog/login") %></li>
-        </ul>
-      </div>
+      <% if session[:user_id] %>
+        <div class="link">
+          <li><%= link_to(@current_user.name, "/blog/user/#{@current_user.id}") %></li>
+          <li><%= link_to("ログアウト", "/user/logout", {method: :post}) %></li>
+        </div>
+      <% else %>
+        <div class="link">
+          <ul>
+            <li><%= link_to("サインアップ", "/blog/signup") %></li>
+            <li><%= link_to("ログイン", "/blog/login") %></li>
+          </ul>
+        </div>
+      <% end %>
     </header>
+    <% if flash[:notice] %>
+      <div class="flash-message">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>

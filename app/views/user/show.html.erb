@@ -1,0 +1,10 @@
+<h1>ユーザー詳細</h1>
+
+<p>ユーザー名</p>
+<p><%= @user.name %></p>
+<% if @user.image.url %>
+<%= image_tag @user.image.url, class: "profile-image" %>
+<% end %>
+<% if @current_user %>
+<%= link_to("編集", "/blog/user/edit/#{@user.id}") %>
+<% end %>
