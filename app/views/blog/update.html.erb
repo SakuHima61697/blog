@@ -1,2 +1,17 @@
-<h1>Blog#update</h1>
-<p>Find me in app/views/blog/update.html.erb</p>
+<div class="blog-update">
+    <h1>ブログ編集</h1>
+
+    <br></br>
+    <br></br>
+
+    <%= form_tag({controller: "blog", action: "edit"}) do %>
+        <div class="blog-form">
+            <%= label_tag :タイトル%>
+            <%= text_field_tag :title, @post.title %>
+            <br></br>
+            <%= rich_text_area_tag :content, @post.content %>
+            <br></br>
+            <%= submit_tag "編集完了" %>
+        </div>
+    <% end %>
+</div>

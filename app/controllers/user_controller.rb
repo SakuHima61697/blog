@@ -3,6 +3,8 @@ class UserController < ApplicationController
   before_action :forbid_login_user, {only: [:new, :create, :login,]}
   before_action :ensure_correct_user, {only: [:edit, :update]}
   
+  after_action :clear_flash
+  
   def new
     @user = User.new
   end
@@ -16,19 +18,26 @@ class UserController < ApplicationController
       flash[:notice] = "ユーザー登録が完了しました！"
       redirect_to("/blog/index")
     else
-      render :new
+      render("user/new")
     end
   end
-
+  
+  def login_form
+  end  
+  
 
   def login
-    @user = User.find_by(email: params[:email])
-    if @user && @user.authenticate(params[:password])
+    @user = User&.find_by(email: params[:email])
+    @user&.authenticate(params[:password])
+    if @user
       session[:user_id] = @user.id
       flash[:notice] = "ログインしました！"
       redirect_to("/blog/index")
     else
-      render("user/login")
+      @error_message = "メールアドレスまたはパスワードが間違っています"
+      @email = params[:email]
+      @password = params[:password]
+      render("user/login_form")
     end
   end
   
@@ -64,6 +73,10 @@ class UserController < ApplicationController
   
   def index
     @users = User.all
+  end
+  
+  def clear_flash
+    flash[:notice] = nil
   end
   
 end

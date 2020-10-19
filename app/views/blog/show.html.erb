@@ -1,2 +1,13 @@
-<h1>Blog#show</h1>
+<h1>ブログ詳細</h1>
 <p>Find me in app/views/blog/show.html.erb</p>
+<p>
+    <strong>タイトル</strong>
+    <%= @post.title %>
+    <%= @post.content %>
+</p>
+<br></br>
+
+<% if @post.user_id == @current_user.id %>
+    <%= link_to("ブログ編集", "/blog/update/#{@post.id}") %>
+<% end %>
+<%= link_to("ブログ一覧に戻る", "/blog/index") %>
