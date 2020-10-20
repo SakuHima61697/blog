@@ -63,4 +63,6 @@ gem 'coffee-rails', '~> 5.0'
 
 gem 'mini_magick'
 
-gem 'rmagick'
+gem 'kaminari'
+
+gem 'default_value_for'

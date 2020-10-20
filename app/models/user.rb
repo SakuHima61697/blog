@@ -5,7 +5,9 @@ class User < ApplicationRecord
     validates :email, {presence: true, uniqueness: true}
     validates :password, {presence: true}
     
-    def posts
-       return Post.where(user_id: self.id) 
-    end
+    has_many :posts, foreign_key: "user_id"
+    
+    default_value_for :name, "(no name)"
+    
+    
 end

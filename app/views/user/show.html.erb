@@ -7,14 +7,34 @@
             <%= image_tag @user.image.url, class: "profile-image" %>
         <% end %>
     </div>
-    
+    <br></br>
+        <p>URL:  </p>
+    <br></br>
+            <table class="user-show-blog-title">
+                <tr>
+                    <th>
+                        ブログ一覧
+                    </th>
+                </tr>
+                        <% @posts.each do |post| %>
+                            <% if post&.user_id == @user&.id %>
+                                <tr>
+                                    <td>
+                                        <%= link_to(post.title, "/blog/show/#{post.id}") %>
+                                    </td>
+                                </tr>
+                            <% end %>
+                        <% end %>
+            </table>
+    <br></br>
     <div class="user-show-link">
-        <% if @user.id == @current_user.id %>
+        <% if @user&.id == @current_user&.id %>
             <%= link_to("編集", "/blog/user/edit/#{@user.id}", class: "user-edit-link") %>
         <% end %>
         <br></br>
-        <%= link_to("ブログ一覧へ", "/blog/index") %>
-        <br></br>
-        <%= link_to("ユーザー一覧へ", "/blog/user/index") %>
+        <%= link_to("ブログ一覧へ", "/blog", class: "show-blog-link") %>
+        <%= link_to("ユーザー一覧へ", "/blog/users", class: "show-user-blog") %>
     </div>
+    <%= paginate @posts %>
 </div>
+

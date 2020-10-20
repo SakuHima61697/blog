@@ -1,12 +1,14 @@
-<h1>ブログ一覧</h1>
+<div class="blog-index">
+    <h1>ブログ一覧</h1>
 <br></br>
-    <table>
-        <tr>
-            <th>タイトル</th>
-        </tr>
+    <table class="blog-title">
         <% @posts.each do |post| %>
         <tr>
             <td><%= link_to(post.title, "/blog/show/#{post.id}") %></td>
+            <td><%= post.created_at.strftime("%Y年%m月%d日") %></td>
         </tr>
         <% end %>
     </table>
+    <%= paginate @posts %>
+</div>
+

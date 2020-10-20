@@ -1,2 +1,13 @@
-<h1>Blog#delete</h1>
-<p>Find me in app/views/blog/delete.html.erb</p>
+<h1>削除確認</h1>
+<br></br>
+<%= link_to("戻る", "/blog/show/#{@post.id}") %>
+<br></br>
+<p>
+    <strong>タイトル</strong>
+    <%= @post.title %>
+    <%= @post.content %>
+</p>
+<br></br>
+<br></br>
+
+<%= link_to("削除", "/blog/delete/#{@post.id}", method: :destroy) %>

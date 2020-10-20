@@ -1,6 +1,6 @@
 class UserController < ApplicationController
   before_action :authenticate_user, {only: [:edit, :update]}
-  before_action :forbid_login_user, {only: [:new, :create, :login,]}
+  before_action :forbid_login_user, {only: [:new, :create, :login, :login_form]}
   before_action :ensure_correct_user, {only: [:edit, :update]}
   
   after_action :clear_flash
@@ -10,29 +10,30 @@ class UserController < ApplicationController
   end
   
   def create
+    @user = User.new
+    @user.image = "沼津写真.jpg"
     @user = User.new(name: params[:name], email: params[:email], 
     password: params[:password], password_confirmation: params[:password_confirmation], 
     image: params[:image])
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = "ユーザー登録が完了しました！"
-      redirect_to("/blog/index")
+      redirect_to("/blog")
     else
       render("user/new")
     end
   end
   
   def login_form
-  end  
-  
+  end
+
 
   def login
-    @user = User&.find_by(email: params[:email])
-    @user&.authenticate(params[:password])
-    if @user
+    @user = User.find_by(email: params[:email],)
+    if @user.authenticate(params[:password])
       session[:user_id] = @user.id
       flash[:notice] = "ログインしました！"
-      redirect_to("/blog/index")
+      redirect_to("/blog")
     else
       @error_message = "メールアドレスまたはパスワードが間違っています"
       @email = params[:email]
@@ -49,6 +50,7 @@ class UserController < ApplicationController
   
   def show
     @user = User.find_by(id: params[:id])
+    @posts = Post.all.page(params[:page]).per(6)
   end
   
   def edit
@@ -77,6 +79,13 @@ class UserController < ApplicationController
   
   def clear_flash
     flash[:notice] = nil
+  end
+  
+  def ensure_correct_user
+     if @current_user.id != params[:id].to_i
+         flash[:notice] = "権限がありません！"
+         redirect_to("/blog")
+     end
   end
   
 end

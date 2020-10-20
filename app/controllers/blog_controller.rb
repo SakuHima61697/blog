@@ -1,9 +1,10 @@
 class BlogController < ApplicationController
   
-  before_action :ensure_correct_user, {only: [:create, :new, :update, :delete]}
+  before_action :ensure_correct_user_create, {only: [:create, :new]}
+  before_action :ensure_correct_user_edit, {only: [:update, :edit, :delete, :destroy]}
   
   def index
-    @posts = Post.all
+    @posts = Post.all.page(params[:page]).per(10)
   end
 
   def create
@@ -11,11 +12,18 @@ class BlogController < ApplicationController
   end
 
   def new
-    @post = Post.new(title: params[:title], content: params[:content])
-    @post.user_id = @current_user.id
-    if @post.save!
+    @post = Post.new(title: params[:title], 
+    content: params[:content], 
+    user_id: session[:user_id])
+    
+    @user = User.new(name: params[:name], email: params[:email], 
+    password: params[:password], password_confirmation: params[:password_confirmation], 
+    image: params[:image])
+    @user.save
+    
+    if @post.save
       flash[:notice] = "ブログを作成しました！"
-      redirect_to("/blog/index")
+      redirect_to("/blog")
     else
       render("blog/create")
     end
@@ -24,6 +32,7 @@ class BlogController < ApplicationController
 
   def show
     @post = Post.find_by(id: params[:id])
+    @user = User.find_by(id: @post.user_id)
   end
 
   def update
@@ -32,11 +41,9 @@ class BlogController < ApplicationController
   
   def edit
     @post = Post.find_by(id: params[:id])
-    @post.title = params[:title]
-    @post.content = params[:content]
-    if @post.save
+    if @post.update(post_params)
       flash[:notice] = "編集が完了しました！"
-      redirect_to("/blog/index")
+      redirect_to("/blog")
     else
       flash[:notice] = "入力し直してください"
       render("blog/update")
@@ -45,9 +52,13 @@ class BlogController < ApplicationController
 
   def delete
     @post = Post.find_by(id: params[:id])
-    if @post.try(:user_id) == @current_user.id
-      
-    end
+  end
+  
+  def destroy
+    @post = Post.find_by(id: params[:id])
+    @post.destroy
+    flash[:notice] = "ブログを削除しました！"
+    redirect_to("/blog")
   end
   
   private
@@ -55,11 +66,19 @@ class BlogController < ApplicationController
       params.require(:post).permit(:title, :content)
     end
     
-    def ensure_correct_user
+    def ensure_correct_user_edit
       @post = Post&.find_by(id: params[:id])
-      if @post.try(:user_id) != @current_user.id
+      if @current_user.id != @post&.user_id
         flash[:notice] = "権限がありません"
-        redirect_to("/blog/index")
+        redirect_to("/blog")
+      end
+    end
+    
+    def ensure_correct_user_create
+      if @current_user
+      else
+        flash[:notice] = "権限がありません"
+        redirect_to("/blog")
       end
     end
 

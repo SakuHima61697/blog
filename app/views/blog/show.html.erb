@@ -1,13 +1,33 @@
-<h1>ブログ詳細</h1>
-<p>Find me in app/views/blog/show.html.erb</p>
+<div class="blog-show">
+<h1><%= @post.title %></h1>
+<br></br>
+<table class="user-link">
+    <tr>
+        <th>作成者</th>
+        <th></th>
+        <th>作成日</th>
+    </tr>
+    <tr>
+        <td><%= link_to(@user&.name, "/blog/user/#{@user&.id}") %></td>
+        <td>
+            <% if @user&.image? %>
+                <%= image_tag @user.image.url, class: "profile-image" %>
+            <% else %>
+                <image src="/assets/沼津写真.jpg" class="profile-image" alt="ユーザーアイコン" %>
+            <% end %>
+        </td>
+        <td><%= @post.created_at.strftime("%Y年%m月%d日") %></td>
+    </tr>
+</table>
+<br></br>
 <p>
-    <strong>タイトル</strong>
-    <%= @post.title %>
     <%= @post.content %>
 </p>
 <br></br>
 
-<% if @post.user_id == @current_user.id %>
+<% if @post&.user_id == @current_user&.id %>
     <%= link_to("ブログ編集", "/blog/update/#{@post.id}") %>
+    <%= link_to("ブログ削除", "/blog/delete/#{@post.id}") %>
 <% end %>
-<%= link_to("ブログ一覧に戻る", "/blog/index") %>
+<%= link_to("ブログ一覧に戻る", "/blog") %>
+</div>

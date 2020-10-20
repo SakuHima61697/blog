@@ -12,7 +12,7 @@
     <%= form_tag({controller: "blog", action: "new"}) do %>
         <div class="blog-form">
             <%= label_tag :タイトル%>
-            <%= text_field_tag :title %>
+            <%= text_area_tag :title %>
             <br></br>
             <%= rich_text_area_tag :content %>
             <br></br>
@@ -20,3 +20,4 @@
         </div>
     <% end %>
 </div>
+

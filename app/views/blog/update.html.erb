@@ -1,8 +1,11 @@
 <div class="blog-update">
     <h1>ブログ編集</h1>
+    <br></br>
+    <%= link_to("戻る", "/blog/show/#{@post.id}") %>
+    <br></br>
+    <br></br>
 
-    <br></br>
-    <br></br>
+
 
     <%= form_tag({controller: "blog", action: "edit"}) do %>
         <div class="blog-form">

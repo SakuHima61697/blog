@@ -1,13 +1,18 @@
 Rails.application.routes.draw do
   
-  get 'blog/index'
+  get 'blog' => "blog#index"
+  
   get 'blog/create' => "blog#create"
   post "blog/create" => "blog#new"
+  
   get "blog/update/:id" => "blog#update"
   post "blog/update/:id" => "blog#edit"
   
+  get "blog/delete/:id" => "blog#delete"
+  post "blog/delete/:id" => "blog#destroy"
   
   get 'blog/show/:id' => "blog#show"
+  
   get 'blog/update'
   get 'blog/delete'
   
@@ -17,7 +22,7 @@ Rails.application.routes.draw do
   get  'blog/signup' => "user#new"
   post "blog/signup" => "user#create"
   
-  get "blog/user/index" => "user#index"
+  get "blog/users" => "user#index"
 
   get "blog/user/:id" => "user#show"
   

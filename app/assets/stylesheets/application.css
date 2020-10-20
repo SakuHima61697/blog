@@ -16,8 +16,12 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-body {
-    background-color: #e5ffff;
+body,
+#wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #e5ffff;
 }
 .profile-image {
     width: 100px;
@@ -31,4 +35,10 @@ body {
     text-align: center;
     display: flex;
     justify-content: space-around;
+    list-style-type: none;
+}
+footer {
+    text-align: center;
+    background-color: green;
+    margin-top: auto;
 }
