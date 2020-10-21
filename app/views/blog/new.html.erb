@@ -1,0 +1,25 @@
+<div class="blog-create">
+    <h1 class="page-title">ブログ作成</h1>
+    
+    <% @post.errors.full_messages.each do |message| %>
+        <div class="form-error">
+            <ul>
+                <li><%= message %></li>
+            </ul>
+        </div>
+    <% end %>
+    
+    <%= form_tag({controller: "blog", action: "create"}) do %>
+            <%= label_tag :タイトル%>
+            <%= text_area_tag :title %>
+            <br></br>
+            <div class="blog-content-form">
+                <%= rich_text_area_tag :content %>
+            </div>
+            <br></br>
+            <%= submit_tag "ブログ作成" %>
+    <% end %>
+    <br></br>
+    <%= link_to("ブログ一覧に戻る", "/blogs") %>
+</div>
+

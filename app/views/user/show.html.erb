@@ -1,14 +1,16 @@
 <div class="user-show">
-    <h1>ユーザー詳細</h1>
-    <p>ユーザー名</p>
-    <p><%= @user.name %></p>
+    <h1 class="page-title"><%= @user.name %></h1>
     <div>
         <% if @user.image.url %>
             <%= image_tag @user.image.url, class: "profile-image" %>
         <% end %>
     </div>
-    <br></br>
-        <p>URL:  </p>
+        <% if @user.url != nil %>
+            <p>URL: <%= link_to(@user.url, @user.url) %></p>
+        <% end %>
+            <br></br>
+            <p>自己紹介</p>
+            <%= @user.content %>
     <br></br>
             <table class="user-show-blog-title">
                 <tr>
@@ -16,25 +18,26 @@
                         ブログ一覧
                     </th>
                 </tr>
-                        <% @posts.each do |post| %>
-                            <% if post&.user_id == @user&.id %>
-                                <tr>
-                                    <td>
-                                        <%= link_to(post.title, "/blog/show/#{post.id}") %>
-                                    </td>
-                                </tr>
-                            <% end %>
+                    <% @posts.each do |post| %>
+                        <% if post&.user_id == @user&.id %>
+                            <tr>
+                                <td>
+                                    <%= link_to(post.title, "/blogs/show/#{post.id}") %>
+                                </td>
+                            </tr>
                         <% end %>
+                    <% end %>
             </table>
     <br></br>
     <div class="user-show-link">
         <% if @user&.id == @current_user&.id %>
-            <%= link_to("編集", "/blog/user/edit/#{@user.id}", class: "user-edit-link") %>
+            <%= link_to("編集", "/blogs/user/edit/#{@user.id}") %>
         <% end %>
         <br></br>
-        <%= link_to("ブログ一覧へ", "/blog", class: "show-blog-link") %>
-        <%= link_to("ユーザー一覧へ", "/blog/users", class: "show-user-blog") %>
+        <%= link_to("ブログ一覧へ", "/blogs", class: "user-show-link") %>
+        <%= link_to("ユーザー一覧へ", "/blogs/users", class: "user-show-link") %>
     </div>
+    <br></br>
     <%= paginate @posts %>
 </div>
 

@@ -1,13 +1,15 @@
-<h1>削除確認</h1>
-<br></br>
-<%= link_to("戻る", "/blog/show/#{@post.id}") %>
-<br></br>
-<p>
-    <strong>タイトル</strong>
-    <%= @post.title %>
-    <%= @post.content %>
-</p>
-<br></br>
-<br></br>
-
-<%= link_to("削除", "/blog/delete/#{@post.id}", method: :destroy) %>
+<div class="blog-delete">
+    <h1 class="page-title">削除確認</h1>
+    <br></br>
+    <p>
+        <strong>タイトル</strong>
+        <%= @post.title %>
+        <%= @post.content %>
+    </p>
+    <br></br>
+    <br></br>
+    <div class="delete-link">
+        <%= link_to("削除", "/blogs/delete/#{@post.id}", method: :destroy) %>
+        <%= link_to("戻る", "/blogs/show/#{@post.id}") %>
+    </div>
+</div>

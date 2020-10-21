@@ -66,3 +66,4 @@ gem 'mini_magick'
 gem 'kaminari'
 
 gem 'default_value_for'
+

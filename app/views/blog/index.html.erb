@@ -1,14 +1,19 @@
 <div class="blog-index">
-    <h1>ブログ一覧</h1>
+    <h1 class="page-title">ブログ一覧</h1>
 <br></br>
     <table class="blog-title">
         <% @posts.each do |post| %>
         <tr>
-            <td><%= link_to(post.title, "/blog/show/#{post.id}") %></td>
-            <td><%= post.created_at.strftime("%Y年%m月%d日") %></td>
+            <td><%= link_to(post.title, "/blogs/show/#{post.id}", class: "blog-index-link") %></td>
+            <td class="blog-created_at" ><%= post.created_at.strftime("%Y年%m月%d日") %></td>
+            <% if post.user_id == @current_user.id %>
+            <td><%= link_to("編集", "/blogs/update/#{post.id}", class: "blog-index-link") %></td>
+            <td><%= link_to("削除", "blogs/delete/#{post.id}") %></td>
+            <% end %>
         </tr>
         <% end %>
     </table>
+    <br></br>
     <%= paginate @posts %>
 </div>
 

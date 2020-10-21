@@ -1,11 +1,9 @@
 <div class="signup">
-    <h1>ユーザー登録</h1>
+    <h1 class="page-title">ユーザー登録</h1>
 
     <% @user.errors.full_messages.each do |message| %>
         <div class="form-error">
-            <ul>
-                <li><%= message %></li>
-            </ul>
+            <li><%= message %></li>
         </div>
     <% end %>
 

@@ -1,35 +1,35 @@
 Rails.application.routes.draw do
   
-  get 'blog' => "blog#index"
+  get 'blogs' => "blog#index"
   
-  get 'blog/create' => "blog#create"
-  post "blog/create" => "blog#new"
+  get 'blogs/new' => "blog#new"
+  post "blogs/new" => "blog#create"
   
-  get "blog/update/:id" => "blog#update"
-  post "blog/update/:id" => "blog#edit"
+  get "blogs/update/:id" => "blog#update"
+  post "blogs/update/:id" => "blog#edit"
   
-  get "blog/delete/:id" => "blog#delete"
-  post "blog/delete/:id" => "blog#destroy"
+  get "blogs/delete/:id" => "blog#delete"
+  post "blogs/delete/:id" => "blog#destroy"
   
-  get 'blog/show/:id' => "blog#show"
+  get 'blogs/show/:id' => "blog#show"
   
-  get 'blog/update'
-  get 'blog/delete'
+  get 'blogs/update'
+  get 'blogs/delete'
   
-  get 'blog/login' => "user#login_form"
-  post "blog/login" => "user#login"
+  get 'blogs/login' => "user#login_form"
+  post "blogs/login" => "user#login"
   
-  get  'blog/signup' => "user#new"
-  post "blog/signup" => "user#create"
+  get  'blogs/signup' => "user#new"
+  post "blogs/signup" => "user#create"
   
-  get "blog/users" => "user#index"
+  get "blogs/users" => "user#index"
 
-  get "blog/user/:id" => "user#show"
+  get "blogs/user/:id" => "user#show"
   
   post "user/logout" => "user#logout"
   
-  get "blog/user/edit/:id" => "user#edit"
-  post "blog/user/edit/:id" => "user#update"
+  get "blogs/user/edit/:id" => "user#edit"
+  post "blogs/user/edit/:id" => "user#update"
   
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

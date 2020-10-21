@@ -1,23 +1,64 @@
 // Place all the styles related to the blog controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+// ブログ作成画面
 .blog-create {
     text-align: center;
 }
+.blog-content-form {
+    display: inline-block;
+    text-align: left;
+}
+// ブログ更新画面
 .blog-update {
     text-align: center;
 }
+// ブログ一覧画面 ------------------------------------------
 .blog-index {
     text-align: center;
 }
+//ブログ一覧画面タイトル
+.blog-index h1 {
+    color: seagreen;
+}
+// ブログタイトル
 .blog-title {
     display: inline-block;
     text-align: center;
 }
+//ブログ作成日
+.blog-created_at {
+    color: darkgreen;
+    margin: 10px;
+    padding: 10px;
+}
+//ブログリンク
+.blog-index-link {
+    padding: 10px;
+    margin: 10px;
+}
+// ------------------------------------------
+// ブログ詳細画面 ---------------------------
 .blog-show {
     text-align: center;
 }
+.blog-content {
+    display: inline-block;
+    text-align: left;
+}
+//-------------------------------------------
+// ブログ削除画面
+.blog-delete{
+    text-align: center;
+}
+// ブログユーザーリンク
 .user-link {
     display: inline-block;
     text-align: center;
+}
+//ブログタイトルリンク
+.blog-title-link {
+    margin: 10px;
+    padding: 10px;
 }

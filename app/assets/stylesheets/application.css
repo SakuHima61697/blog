@@ -16,6 +16,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+/*共通ボディ*/
 body,
 #wrapper {
   display: flex;
@@ -23,6 +24,7 @@ body,
   min-height: 100vh;
   background-color: #e5ffff;
 }
+/*プロフィール画像*/
 .profile-image {
     width: 100px;
     height: 100px;
@@ -30,6 +32,7 @@ body,
     border-radius: 50%;
     display: inline-block;
 }
+/*ページリンク*/
 .link {
     width: 100%;
     text-align: center;
@@ -37,7 +40,33 @@ body,
     justify-content: space-around;
     list-style-type: none;
 }
+/*ページリンクカラー*/
+.link-color {
+    color: white;
+    text-decoration: none;
+}
+/* ページタイトル */
+.page-title {
+    color: seagreen;
+}
+/* フラッシュメッセージ */
+.alert alert-notice {
+    display: inline-block;
+    padding: 10px 0;
+    text-align: center;
+    top: 60px;
+    position: absolute;
+    top: 64px;
+}
+/*ヘッダー*/
+header {
+    text-align: center;
+    background-color: green;
+    padding: 10px;
+}
+/*フッター*/
 footer {
+    color: white;
     text-align: center;
     background-color: green;
     margin-top: auto;

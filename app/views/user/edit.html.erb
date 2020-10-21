@@ -1,5 +1,11 @@
 <div class="user-edit">
-    <h1>ユーザー情報編集</h1>
+    <h1 class="page-title">ユーザー情報編集</h1>
+        <% @user.errors.full_messages.each do |message| %>
+            <div class="form-error">
+                <li><%= message %></li>
+            </div>
+        <% end %>
+
     <div class="user-edit-form">
         <%= form_tag({controller: "user", action: "update"}, {multipart: true}) do %>
             <%= label_tag :ユーザー名%>
@@ -7,6 +13,12 @@
             <br></br>
             <%= label_tag :メールアドレス %>
             <%= email_field_tag :email, @user.email %>
+            <br></br>
+            <%= label_tag :url, "URL(Twitterなど)" %>
+            <%= text_field_tag :url, @user&.url %>
+            <br></br>
+            <%= label_tag :自己紹介 %>
+            <%= text_area_tag :content, @user&.content %>
             <br></br>
             <%= label_tag :パスワード %>
             <%= password_field_tag :password, params[:password] %>
@@ -24,5 +36,5 @@
 </div>
 <br></br>
 <div class="user-edit-link">
-    <%= link_to("戻る", "/blog/user/#{@user.id}") %>
+    <%= link_to("戻る", "/blogs/user/#{@user.id}") %>
 </div>

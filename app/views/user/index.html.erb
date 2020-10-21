@@ -1,17 +1,14 @@
 <div class="user-index">
-    <h1>ユーザー一覧</h1>
-    <div class="">
-        
-    </div>
+    <h1 class="page-title">ユーザー一覧</h1>
     <% @users.each do |user| %>
-        <div class="profile-index">
             <% if user.image.url %>
                 <%= image_tag user.image.url, class: "profile-image" %>
             <% end %>
             <div class="user-name-index">
-                <%= link_to(user.name, "/blog/user/#{user.id}") %>
+                <%= link_to(user.name, "/blogs/user/#{user.id}") %>
                 <br></br>
             </div>
-        </div>
     <% end %>
+    <br></br>
+    <%= paginate @users %>
 </div>

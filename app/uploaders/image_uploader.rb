@@ -1,8 +1,8 @@
 class ImageUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
-   #include CarrierWave::MiniMagick
-   #process resize_to_limit: [400, 400, "Center"]
+   include CarrierWave::MiniMagick
+   process :resize_to_fill=> [100, 100]
 
   # Choose what kind of storage to use for this uploader:
   storage :file
@@ -57,7 +57,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   #end
   
   def default_url
-    '/assets/沼津写真.jpg'
+    '/assets/default.jpg'
   end
   
 end
