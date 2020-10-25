@@ -18,3 +18,6 @@ require("channels")
 
 require("trix")
 require("@rails/actiontext")
+
+require ("jquery")
+require ("bootstrap-sprockets") 
