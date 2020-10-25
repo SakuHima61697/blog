@@ -1,18 +1,22 @@
 <div class="blog-update">
     <h1 class="page-title">ブログ編集</h1>
     <br></br>
-    <%= link_to("戻る", "/blogs/show/#{@post.id}") %>
-    <br></br>
-    <br></br>
 
     <%= form_tag({controller: "blog", action: "edit"}) do %>
+        <%= label_tag :タイトル%>
+        <%= text_field_tag :title, @post.title %>
+        <br></br>
+        <%= label_tag :ジャンル%>
+        <%= text_field_tag :genre, @post&.genre %>
+        <br></br>
         <div class="blog-form">
-            <%= label_tag :タイトル%>
-            <%= text_field_tag :title, @post.title %>
             <br></br>
             <%= rich_text_area_tag :content, @post.content %>
+        </div>
             <br></br>
             <%= submit_tag "編集完了" %>
-        </div>
     <% end %>
+    <br></br>
+    <%= link_to("ブログ詳細へ戻る", "/blogs/show/#{@post.id}") %>
+    <br></br>
 </div>

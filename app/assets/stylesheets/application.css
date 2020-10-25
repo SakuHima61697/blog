@@ -50,13 +50,9 @@ body,
     color: seagreen;
 }
 /* フラッシュメッセージ */
-.alert alert-notice {
-    display: inline-block;
+.flash {
+    color: red;
     padding: 10px 0;
-    text-align: center;
-    top: 60px;
-    position: absolute;
-    top: 64px;
 }
 /*ヘッダー*/
 header {
@@ -70,4 +66,8 @@ footer {
     text-align: center;
     background-color: green;
     margin-top: auto;
+}
+/* フォームエラー */
+.form-error {
+    list-style-type: none;
 }

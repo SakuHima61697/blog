@@ -5,8 +5,8 @@ class BlogController < ApplicationController
   
   #ブログ一覧
   def index
-    @user = User.find_by(id: @current_user.id)
-    @posts = Post.all.page(params[:page]).per(10)
+    @q = Post.ransack(params[:q])
+    @posts = @q.result(distinct: true).page(params[:page]).per(10)
   end
 
   #ブログ作成ページ
@@ -17,13 +17,9 @@ class BlogController < ApplicationController
   #ブログ作成
   def create
     @post = Post.new(title: params[:title], 
+    genre: params[:genre],
     content: params[:content], 
     user_id: session[:user_id])
-    
-    @user = User.new(name: params[:name], email: params[:email], 
-    password: params[:password], password_confirmation: params[:password_confirmation], 
-    image: params[:image])
-    @user.save
     
     if @post.save
       flash[:notice] = "ブログを作成しました！"
@@ -73,7 +69,7 @@ class BlogController < ApplicationController
   private
   #ブログパラメータ(アクションテキスト絡み)
     def post_params
-      params.require(:post).permit(:title, :content)
+      params.permit(:title, :genre, :content)
     end
     
   #ブログ編集権限

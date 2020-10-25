@@ -6,7 +6,11 @@
 .user-show {
     text-align: center;
 }
-//
+.user-show-title {
+    padding: 10px;
+    margin: 10px;
+    color: darkgreen;
+}
 .user-show-link {
     display: inline-block;
     text-align: center;
@@ -15,6 +19,7 @@
     display: inline-block;
     text-align: center;
 }
+
 .user-edit-link {
     text-align: center;
 }
@@ -44,13 +49,18 @@
 .login {
     text-align: center;
 }
+//ユーザー登録
 .signup {
     text-align: center;
 }
-.form-error {
-    list-style-type: none;
+.signup-form {
+    display: center;
+    text-align: center;
 }
-
+.signup-profile-img {
+    display: inline-block;
+    text-align: right;
+}
 .user-show-link {
     padding: 10px;
 }

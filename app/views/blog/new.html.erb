@@ -1,6 +1,6 @@
 <div class="blog-create">
     <h1 class="page-title">ブログ作成</h1>
-    
+    <br></br>
     <% @post.errors.full_messages.each do |message| %>
         <div class="form-error">
             <ul>
@@ -11,7 +11,10 @@
     
     <%= form_tag({controller: "blog", action: "create"}) do %>
             <%= label_tag :タイトル%>
-            <%= text_area_tag :title %>
+            <%= text_field_tag :title %>
+            <br></br>
+            <%= label_tag :ジャンル%>
+            <%= text_field_tag :genre %>
             <br></br>
             <div class="blog-content-form">
                 <%= rich_text_area_tag :content %>

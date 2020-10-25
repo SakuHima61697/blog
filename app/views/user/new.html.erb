@@ -1,5 +1,6 @@
 <div class="signup">
     <h1 class="page-title">ユーザー登録</h1>
+    <br></br>
 
     <% @user.errors.full_messages.each do |message| %>
         <div class="form-error">
@@ -15,6 +16,12 @@
             <%= label_tag :メールアドレス %>
             <%= email_field_tag :email %>
             <br></br>
+            <%= label_tag :url, "URL(Twitterなど)" %>
+            <%= text_field_tag :url %>
+            <br></br>
+            <%= label_tag :自己紹介 %>
+            <%= text_area_tag :content %>
+            <br></br>
             <%= label_tag :パスワード %>
             <%= password_field_tag :password %>
             <br></br>
@@ -22,7 +29,9 @@
             <%= password_field_tag :password_confirmation %>
             <br></br>
             <%= label_tag :プロフィール画像 %>
-            <%= file_field_tag :image %>
+            <div class = "signup-profile-img" >
+                <%= file_field_tag :image %>
+            </div>
             <br></br>
             <%= submit_tag "登録" %>
         </div>

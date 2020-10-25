@@ -6,13 +6,19 @@
 .blog-create {
     text-align: center;
 }
+//ブログ入力フォーム
 .blog-content-form {
     display: inline-block;
     text-align: left;
 }
-// ブログ更新画面
+// ブログ更新画面　-----------------------------------------
 .blog-update {
     text-align: center;
+}
+//ブログフォーム
+.blog-form {
+    display: inline-block;
+    text-align: left;
 }
 // ブログ一覧画面 ------------------------------------------
 .blog-index {
@@ -26,6 +32,8 @@
 .blog-title {
     display: inline-block;
     text-align: center;
+    padding: 10px;
+    margin: 10px;
 }
 //ブログ作成日
 .blog-created_at {
@@ -38,19 +46,46 @@
     padding: 10px;
     margin: 10px;
 }
-// ------------------------------------------
-// ブログ詳細画面 ---------------------------
+//ブログジャンル
+.blog-genre {
+    color: darkgreen;
+    padding: 10px;
+    margin: 10px;
+}
+//ブログ検索フォーム
+.blog-search-form {
+    color: darkgreen;
+}
+// -----------------------------------------------------
+// ブログ詳細画面 --------------------------------------
 .blog-show {
     text-align: center;
+    color: darkgreen;
 }
+//ブログコンテンツ
 .blog-content {
     display: inline-block;
     text-align: left;
+}
+//ユーザーリンク
+.user-link{
+    padding: 10px;
+    margin: 10px;
+}
+//ユーザーリンクテーブル
+.user-link-table {
+    display: inline-block;
+    text-align: center;
 }
 //-------------------------------------------
 // ブログ削除画面
 .blog-delete{
     text-align: center;
+}
+//削除
+.delete-link {
+    padding: 10px;
+    margin: 10px;
 }
 // ブログユーザーリンク
 .user-link {

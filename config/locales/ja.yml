@@ -11,6 +11,7 @@ ja:
         password: パスワード
       post:
         title: タイトル
+        genre: ジャンル
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
