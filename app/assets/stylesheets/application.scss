@@ -13,7 +13,6 @@
  *= require_tree .
  *= require_self
  */
-@import "bootstrap-sprockets";
 @import "bootstrap";
 
 /*共通ボディ*/
@@ -70,4 +69,8 @@ footer {
 /* フォームエラー */
 .form-error {
     list-style-type: none;
+}
+/* 警告文 */
+.alert {
+    color: red;
 }

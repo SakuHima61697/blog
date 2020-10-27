@@ -1,6 +1,6 @@
 <div class="blog-create">
     <h1 class="page-title">ブログ作成</h1>
-    <br></br>
+        <br></br>
     <% @post.errors.full_messages.each do |message| %>
         <div class="form-error">
             <ul>
@@ -16,6 +16,7 @@
             <%= label_tag :ジャンル%>
             <%= text_field_tag :genre %>
             <br></br>
+            <p class="alert">画像サイズによっては、画像が正しく表示されないことがあります。</p>
             <div class="blog-content-form">
                 <%= rich_text_area_tag :content %>
             </div>
