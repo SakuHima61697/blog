@@ -75,6 +75,8 @@ gem 'rubocop-rails'
 
 gem 'fog-aws'
 
+gem "aws-sdk-s3", require: false
+
 group :production do
   gem 'pg'
 end
