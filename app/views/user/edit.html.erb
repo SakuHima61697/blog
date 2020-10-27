@@ -8,6 +8,12 @@
         <%= label_tag :メールアドレス %>
         <%= email_field_tag :email, @user.email %>
         <br></br>
+        <%= label_tag :url, "URL(Twitterなど)" %>
+        <%= text_field_tag :url %>
+        <br></br>
+        <%= label_tag :自己紹介 %>
+        <%= text_area_tag :content %>
+        <br></br>
         <%= label_tag :パスワード %>
         <%= password_field_tag :password, params[:password] %>
         <br></br>
