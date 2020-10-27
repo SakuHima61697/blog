@@ -73,6 +73,8 @@ gem 'ransack'
 gem 'rubocop'
 gem 'rubocop-rails'
 
+gem 'fog-aws'
+
 group :production do
   gem 'pg'
 end
