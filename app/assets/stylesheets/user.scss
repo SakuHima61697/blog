@@ -19,16 +19,18 @@
     display: inline-block;
     text-align: center;
 }
-
-.user-edit-link {
-    text-align: center;
-}
+//ユーザー編集画面
 .user-edit {
     text-align: center;
 }
-// 
 .user-edit-form {
     display: inline-block;
+    text-align: center;
+}
+.edit-profile-img {
+    text-align: center;
+}
+.user-edit-link {
     text-align: center;
 }
 .user-index {
@@ -46,15 +48,16 @@
     margin: 5px auto 40px auto;
     text-align: center;
 }
+//ログイン画面
 .login {
     text-align: center;
 }
-//ユーザー登録
+//サインアップ画面
 .signup {
     text-align: center;
 }
 .signup-form {
-    display: center;
+    display: inline-block;
     text-align: center;
 }
 .signup-profile-img {

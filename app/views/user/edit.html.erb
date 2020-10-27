@@ -1,20 +1,29 @@
-<h1>ユーザー情報編集</h1>
-<%= form_tag({controller: "user", action: "update"}, {multipart: true}) do %>
+<div class="user-edit">
+    <h1 class="page-title">ユーザー情報編集</h1>
+    <%= form_tag({controller: "user", action: "update"}, {multipart: true}) do %>
     <div class="user-edit-form">
         <%= label_tag :ユーザー名%>
         <%= text_field_tag :name, @user.name %>
+        <br></br>
         <%= label_tag :メールアドレス %>
         <%= email_field_tag :email, @user.email %>
+        <br></br>
         <%= label_tag :パスワード %>
         <%= password_field_tag :password, params[:password] %>
+        <br></br>
         <%= label_tag :パスワード確認用 %>
         <%= password_field_tag :password_confirmation, params[:password_confirmation] %>
+        <br></br>
         <%= label_tag :プロフィール画像 %>
-        <%= file_field_tag :image %>
+        <div class="edit-profile-img">
+            <%= file_field_tag :image %>
+        </div>
         <br></br>
         <%= submit_tag "更新" %>
+    <% end %>
     </div>
-<% end %>
-<div class="user-edit-link">
-    <%= link_to("戻る", "/blog/user/#{@user.id}") %>
+        <br></br>
+        <div class="user-edit-link">
+            <%= link_to("ユーザー詳細画面へ戻る", "/blogs/user/#{@user.id}") %>
+        </div>
 </div>
