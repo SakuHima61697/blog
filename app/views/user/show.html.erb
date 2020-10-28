@@ -32,11 +32,11 @@
     <br></br>
     <div class="user-show-link">
         <% if @user&.id == @current_user&.id %>
-            <%= link_to("編集", "/blogs/user/edit/#{@user.id}") %>
+            <%= link_to("編集", "/blogs/user/edit/#{@user.id}", class: "btn btn-primary") %>
         <% end %>
         <br></br>
-        <%= link_to("ブログ一覧へ", "/blogs", class: "user-show-link") %>
-        <%= link_to("ユーザー一覧へ", "/blogs/users", class: "user-show-link") %>
+        <%= link_to("ブログ一覧へ", "/blogs", class: "user-show-link btn btn-success") %>
+        <%= link_to("ユーザー一覧へ", "/blogs/users", class: "user-show-link btn btn-success") %>
     </div>
     <br></br>
     <%= paginate @posts %>
