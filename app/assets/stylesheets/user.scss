@@ -2,68 +2,79 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-// ユーザー情報画面
+// ユーザー情報画面----------------------------------------
 .user-show {
     text-align: center;
 }
+//タイトル
 .user-show-title {
     padding: 10px;
     margin: 10px;
     color: darkgreen;
 }
+//リンク
 .user-show-link {
     display: inline-block;
     text-align: center;
 }
+//ブログタイトル
 .user-show-blog-title{
     display: inline-block;
     text-align: center;
 }
-//ユーザー編集画面
+//リンク
+.user-show-link {
+    padding: 10px;
+}
+//ユーザー編集画面-------------------------------------------
 .user-edit {
     text-align: center;
 }
+//入力フォーム
 .user-edit-form {
     display: inline-block;
     text-align: center;
 }
+//プロフィール画像設定
 .edit-profile-img {
     text-align: center;
 }
+//リンク
 .user-edit-link {
     text-align: center;
 }
+//ユーザー一覧画面---------------------------------------------
 .user-index {
     text-align: center;
     width: 100%;
     overflow: hidden;
     display: table;
 }
+//プロフィール画像
 .profile-image-index {
     display: inline-block;
     margin: 20px auto 20px auto;
 }
-//
+//ユーザー名リンク
 .user-name-index {
     margin: 5px auto 40px auto;
     text-align: center;
 }
-//ログイン画面
+//ログイン画面--------------------------------
 .login {
     text-align: center;
 }
-//サインアップ画面
+//サインアップ画面----------------------------
 .signup {
     text-align: center;
 }
+//フォーム
 .signup-form {
     display: inline-block;
     text-align: center;
 }
+//プロフィール画像設定
 .signup-profile-img {
     display: inline-block;
     text-align: right;
-}
-.user-show-link {
-    padding: 10px;
 }
