@@ -8,7 +8,7 @@
         <br></br>
         <%= @post.content %>
     <br></br>
-        <%= link_to("削除", "/blogs/delete/#{@post.id}", method: :destroy,  class: "delete-link") %>
-        <%= link_to("ブログ詳細画面へ戻る", "/blogs/show/#{@post.id}",  class: "delete-link") %>
+        <%= link_to("削除", "/blogs/delete/#{@post.id}", method: :destroy,  class: "delete-link btn btn-danger") %>
+        <%= link_to("ブログ詳細画面へ戻る", "/blogs/show/#{@post.id}",  class: "delete-link btn btn-success") %>
         <br></br>
 </div>

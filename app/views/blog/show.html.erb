@@ -22,9 +22,9 @@
 </div>
 <br></br>
     <% if @post&.user_id == @current_user&.id %>
-        <%= link_to("ブログ編集", "/blogs/update/#{@post.id}",  class: "user-link") %>
-        <%= link_to("ブログ削除", "/blogs/delete/#{@post.id}",  class: "user-link") %>
+        <%= link_to("ブログ編集", "/blogs/update/#{@post.id}",  class: "user-link btn btn-success") %>
+        <%= link_to("ブログ削除", "/blogs/delete/#{@post.id}",  class: "user-link btn btn-danger") %>
     <% end %>
-    <%= link_to("ブログ一覧に戻る", "/blogs",  class: "user-link") %>
+    <%= link_to("ブログ一覧に戻る", "/blogs",  class: "user-link btn btn-success") %>
 </div>
 <br></br>
