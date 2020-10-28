@@ -1,4 +1,3 @@
-CarrierWave::SanitizedFile.sanitize_regexp = /[^[:word:]\.\-\+]/
 require 'carrierwave/storage/abstract'
 require 'carrierwave/storage/file'
 require 'carrierwave/storage/fog'
@@ -14,3 +13,4 @@ if Rails.env.production?
     config.fog_directory     =  ENV['S3_BUCKET']
   end
 end
+CarrierWave::SanitizedFile.sanitize_regexp = /[^[:word:]\.\-\+]/
