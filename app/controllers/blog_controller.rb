@@ -20,7 +20,7 @@ class BlogController < ApplicationController
     genre: params[:genre],
     content: params[:content], 
     user_id: session[:user_id],
-    user_name: session[:user_name]
+    user_name: session[:user_name])
     
     if @post.save
       flash[:notice] = "ブログを作成しました！"
