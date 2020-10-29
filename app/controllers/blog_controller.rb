@@ -7,7 +7,6 @@ class BlogController < ApplicationController
   def index
     @q = Post.ransack(params[:q])
     @posts = @q.result(distinct: true).page(params[:page]).per(10)
-    @users = User.all
   end
 
   #ブログ作成ページ
