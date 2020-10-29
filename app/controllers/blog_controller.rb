@@ -11,7 +11,6 @@ class BlogController < ApplicationController
 
   #ブログ作成ページ
   def new
-    @post = Post.new
   end
 
   #ブログ作成
@@ -19,7 +18,8 @@ class BlogController < ApplicationController
     @post = Post.new(title: params[:title], 
     genre: params[:genre],
     content: params[:content], 
-    user_id: session[:user_id])
+    user_id: session[:user_id],
+    user_name: params[@current_user.name])
     
     if @post.save
       flash[:notice] = "ブログを作成しました！"
