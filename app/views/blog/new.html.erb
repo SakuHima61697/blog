@@ -1,7 +1,7 @@
 <div class="blog-create">
     <h1 class="page-title">ブログ作成</h1>
         <br></br>
-    <% @post.errors.full_messages.each do |message| %>
+    <% @post&.errors.full_messages.each do |message| %>
         <div class="form-error">
             <ul>
                 <li><%= message %></li>
