@@ -18,6 +18,7 @@ class UserController < ApplicationController
     image: params[:image])
     if @user.save
       session[:user_id] = @user.id
+      session[:user_name] = @user.name
       flash[:notice] = "ユーザー登録が完了しました！"
       redirect_to("/blogs")
     else
@@ -34,6 +35,7 @@ class UserController < ApplicationController
     @user = User.find_by(email: params[:email],)
     if @user&.authenticate(params[:password])
       session[:user_id] = @user.id
+      session[:user_name] = @user.name
       flash[:notice] = "ログインしました！"
       redirect_to("/blogs")
     else
@@ -47,6 +49,7 @@ class UserController < ApplicationController
   #ログアウト
   def logout
     session[:user_id] = nil
+    session[:user_name] = nil
       flash[:notice] = "ログアウトしました！"
     redirect_to("/blogs/login")
   end
