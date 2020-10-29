@@ -64,6 +64,14 @@
 .login {
     text-align: center;
 }
+.login-form {
+    display: inline-block;
+    text-align: center;
+}
+//フォームタグ
+.login-form-tag {
+    color: darkgreen;
+}
 //サインアップ画面----------------------------
 .signup {
     text-align: center;
@@ -72,6 +80,10 @@
 .signup-form {
     display: inline-block;
     text-align: center;
+}
+//フォームタグ
+.signup-form-tag {
+    color: darkgreen;
 }
 //プロフィール画像設定
 .signup-profile-img {
