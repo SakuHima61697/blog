@@ -11,6 +11,7 @@ class BlogController < ApplicationController
 
   #ブログ作成ページ
   def new
+    @post = Post.new
   end
 
   #ブログ作成
