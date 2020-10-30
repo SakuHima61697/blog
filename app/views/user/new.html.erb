@@ -10,25 +10,25 @@
     <!--ユーザー登録フォーム-->
     <%= form_tag({controller: "user", action: "create"}, {multipart: true}) do %>
         <div class="signup-form">
-            <%= label_tag :ユーザー名, class: "signup-form-tag" %>
+            <%= label_tag :ユーザー名 %>
             <%= text_field_tag :name %>
             <br></br>
-            <%= label_tag :メールアドレス, class: "signup-form-tag" %>
+            <%= label_tag :メールアドレス %>
             <%= email_field_tag :email %>
             <br></br>
-            <%= label_tag :url, "URL(Twitterなど)", class: "signup-form-tag" %>
+            <%= label_tag :url, "URL(Twitterなど)" %>
             <%= text_field_tag :url %>
             <br></br>
-            <%= label_tag :自己紹介, class: "signup-form-tag" %>
+            <%= label_tag :自己紹介 %>
             <%= text_area_tag :content %>
             <br></br>
-            <%= label_tag :パスワード, class: "signup-form-tag" %>
+            <%= label_tag :パスワード %>
             <%= password_field_tag :password %>
             <br></br>
-            <%= label_tag :パスワード確認用, class: "signup-form-tag" %>
+            <%= label_tag :パスワード確認用 %>
             <%= password_field_tag :password_confirmation %>
             <br></br>
-            <%= label_tag :プロフィール画像, class: "signup-form-tag" %>
+            <%= label_tag :プロフィール画像 %>
             <div class = "signup-profile-img" >
                 <%= file_field_tag :image, class: "signup-form-tag" %>
             </div>

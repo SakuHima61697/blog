@@ -12,10 +12,10 @@
     <!--ログインフォーム-->
     <%= form_tag(controller: "user", action: "login") do %>
         <div class="login-form">
-            <%= label_tag :メールアドレス, class: "login-form-tag" %>
+            <%= label_tag :メールアドレス %>
             <%= text_field_tag :email, @email %>
             <br></br>
-            <%= label_tag :パスワード, class: "login-form-tag" %>
+            <%= label_tag :パスワード %>
             <%= password_field_tag :password, @password %>
             <br></br>
             <%= submit_tag :ログイン, class: "btn btn-primary" %>
