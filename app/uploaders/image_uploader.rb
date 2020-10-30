@@ -14,7 +14,7 @@ end
   end
    
    
-   
+  #画像サイズ制限
    process :resize_to_fill=> [100, 100]
 
   # Choose what kind of storage to use for this uploader:
@@ -55,7 +55,7 @@ end
   # def filename
   #   "something.jpg" if original_filename
   # end
-  
+  #画像規格
   def extension_white_list
     %w(jpg jpeg gif png)
   end
@@ -65,11 +65,11 @@ end
   #  ActionController::Base.helpers.asset_path("fallback/" + [version_name, "沼津写真.jpg"].compact.join('_'))
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   #end
-  
+  #デフォルト画像設定
   def default_url
     '/assets/default.jpg'
   end
-  
+  #画像容量制限
   def size_range
     1..10.megabytes
   end

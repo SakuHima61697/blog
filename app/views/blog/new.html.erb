@@ -1,6 +1,7 @@
 <div class="blog-create">
     <h1 class="page-title">ブログ作成</h1>
         <br></br>
+    <!--エラーメッセージ-->
     <% @post.errors.full_messages.each do |message| %>
         <div class="form-error">
             <ul>
@@ -8,7 +9,7 @@
             </ul>
         </div>
     <% end %>
-    
+    <!--ブログ作成フォーム-->
     <%= form_tag({controller: "blog", action: "create"}) do %>
             <%= label_tag :タイトル%>
             <%= text_field_tag :title %>
@@ -23,7 +24,7 @@
             <br></br>
             <%= submit_tag "ブログ作成", class: "btn btn-primary" %>
     <% end %>
-    <br></br>
+        <br></br>
     <%= link_to("ブログ一覧に戻る", "/blogs") %>
 </div>
 

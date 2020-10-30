@@ -1,26 +1,29 @@
 <div class="blog-show">
-<h1 class="page-title"><%= @post.title %></h1>
-<br></br>
-<table class="user-link-table">
-    <tr>
-        <td class="user-link">ジャンル</td>
-        <td class="user-link"><%= @post&.genre %></td>
-        <td class="user-link"><%= link_to(@user&.name, "/blogs/user/#{@user&.id}") %></td>
-        <td class="user-link">
-            <% if @user&.image? %>
-                <%= image_tag @user.image.url, class: "profile-image" %>
-            <% else %>
-                <image src="/assets/default.jpg" class="profile-image" alt="ユーザーアイコン" %>
-            <% end %>
-        </td>
-        <td class="user-link"><%= @post.created_at.strftime("%Y年%m月%d日") %></td>
-    </tr>
-</table>
-<br></br>
-<div class="blog-content">
-    <%= @post.content %>
-</div>
-<br></br>
+    <h1 class="page-title"><%= @post.title %></h1>
+    <br></br>
+    <!--ブログ情報-->
+    <table class="user-link-table">
+        <tr>
+            <td class="user-link">ジャンル</td>
+            <td class="user-link"><%= @post&.genre %></td>
+            <td class="user-link"><%= link_to(@user&.name, "/blogs/user/#{@user&.id}") %></td>
+            <td class="user-link">
+                <% if @user&.image? %>
+                    <%= image_tag @user.image.url, class: "profile-image" %>
+                <% else %>
+                    <image src="/assets/default.jpg" class="profile-image" alt="ユーザーアイコン" %>
+                <% end %>
+            </td>
+            <td class="user-link"><%= @post.created_at.strftime("%Y年%m月%d日") %></td>
+        </tr>
+    </table>
+    <br></br>
+    <!--ブログ内容-->
+    <div class="blog-content">
+        <%= @post.content %>
+    </div>
+    <br></br>
+    <!--リンク-->
     <% if @post&.user_id == @current_user&.id %>
         <%= link_to("ブログ編集", "/blogs/update/#{@post.id}",  class: "user-link btn btn-success") %>
         <%= link_to("ブログ削除", "/blogs/delete/#{@post.id}",  class: "user-link btn btn-danger") %>

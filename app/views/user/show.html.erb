@@ -1,11 +1,13 @@
 <div class="user-show">
     <h1 class="user-show-title"><%= @user.name %></h1>
     <div>
+        <!--プロフィール画像-->
         <% if @user.image.url %>
             <%= image_tag @user.image.url, class: "profile-image" %>
         <% end %>
         <br></br>
     </div>
+        <!--URL-->
         <% if @user.url != nil %>
             <p>URL: <%= link_to(@user.url, @user.url) %></p>
         <% end %>
@@ -13,6 +15,7 @@
             <p>自己紹介</p>
             <%= @user.content %>
     <br></br>
+            <!--ユーザー作成ブログ一覧-->
             <table class="user-show-blog-title">
                 <tr>
                     <th class="user-show-blog-title">
@@ -30,6 +33,7 @@
                     <% end %>
             </table>
     <br></br>
+    <!--リンク-->
     <div class="user-show-link">
         <% if @user&.id == @current_user&.id %>
             <%= link_to("編集", "/blogs/user/edit/#{@user.id}", class: "btn btn-primary") %>
@@ -39,6 +43,7 @@
         <%= link_to("ユーザー一覧へ", "/blogs/users", class: "user-show-link btn btn-success") %>
     </div>
     <br></br>
+    <!--ブログ一覧ページ表示-->
     <%= paginate @posts %>
 </div>
 

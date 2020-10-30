@@ -1,6 +1,7 @@
 <div class="login">
     <h1 class="page-title">ログイン</h1>
     <br></br>
+        <!--エラーメッセージ-->
         <% if @error_message %>
           <div class="form-error">
             <%= @error_message %>
@@ -8,7 +9,7 @@
         <% end %>
 
     <br></br>
-    
+    <!--ログインフォーム-->
     <%= form_tag(controller: "user", action: "login") do %>
         <div class="login-form">
             <%= label_tag :メールアドレス, class: "login-form-tag" %>

@@ -1,5 +1,6 @@
 <div class="user-index">
     <h1 class="page-title">ユーザー一覧</h1>
+    <!--ユーザー一覧表示-->
     <% @users.each do |user| %>
             <% if user.image.url %>
                 <%= image_tag user.image.url, class: "profile-image" %>
@@ -10,5 +11,6 @@
             </div>
     <% end %>
     <br></br>
+    <!--ユーザー一覧ページ表示-->
     <%= paginate @users %>
 </div>

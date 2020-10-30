@@ -1,7 +1,7 @@
 <div class="blog-update">
     <h1 class="page-title">ブログ編集</h1>
     <br></br>
-
+    <!--ブログ編集フォーム-->
     <%= form_tag({controller: "blog", action: "edit"}) do %>
         <%= label_tag :タイトル%>
         <%= text_field_tag :title, @post.title %>

@@ -1,13 +1,13 @@
 <div class="signup">
     <h1 class="page-title">ユーザー登録</h1>
     <br></br>
-
+    <!--エラーメッセージ-->
     <% @user.errors.full_messages.each do |message| %>
         <div class="form-error">
             <li><%= message %></li>
         </div>
     <% end %>
-
+    <!--ユーザー登録フォーム-->
     <%= form_tag({controller: "user", action: "create"}, {multipart: true}) do %>
         <div class="signup-form">
             <%= label_tag :ユーザー名, class: "signup-form-tag" %>

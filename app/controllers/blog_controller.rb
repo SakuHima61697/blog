@@ -3,18 +3,18 @@ class BlogController < ApplicationController
   before_action :ensure_correct_user_create, {only: [:create, :new]}
   before_action :ensure_correct_user_edit, {only: [:update, :edit, :delete, :destroy]}
   
-  #ブログ一覧
+  #ブログ一覧ページ
   def index
     @q = Post.ransack(params[:q])
     @posts = @q.result(distinct: true).page(params[:page]).per(10)
   end
 
-  #ブログ作成ページ
+  #ブログ作成ページ(エラーメッセージ取得用)
   def new
     @post = Post.new
   end
 
-  #ブログ作成
+  #ブログ作成ページ
   def create
     @post = Post.new(title: params[:title], 
     genre: params[:genre],
