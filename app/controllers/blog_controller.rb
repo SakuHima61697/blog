@@ -45,7 +45,9 @@ class BlogController < ApplicationController
   #ブログ更新
   def edit
     @post = Post.find_by(id: params[:id])
-    if @post.update(post_params)
+    
+    if @post.update(post_params,
+      user_name: session[:user_name])
       flash[:notice] = "編集が完了しました！"
       redirect_to("/blogs")
     else
