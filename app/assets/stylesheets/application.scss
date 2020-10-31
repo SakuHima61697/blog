@@ -23,6 +23,12 @@ body,
   min-height: 100vh;
   background-color: #e5ffff;
 }
+/*ヘッダー*/
+header {
+    text-align: center;
+    background-color: green;
+    padding: 10px;
+}
 /*プロフィール画像*/
 .profile-image {
     width: 100px;
@@ -53,19 +59,6 @@ body,
     color: red;
     text-align: center;
 }
-/*ヘッダー*/
-header {
-    text-align: center;
-    background-color: green;
-    padding: 10px;
-}
-/*フッター*/
-footer {
-    color: white;
-    text-align: center;
-    background-color: green;
-    margin-top: auto;
-}
 /* フォームエラー */
 .form-error {
     list-style-type: none;
@@ -73,4 +66,11 @@ footer {
 /* 警告文 */
 .alert {
     color: red;
+}
+/*フッター*/
+footer {
+    color: white;
+    text-align: center;
+    background-color: green;
+    margin-top: auto;
 }

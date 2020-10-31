@@ -26,7 +26,6 @@
           <li><%= link_to("ブログ一覧", "/blogs", class: "link-color") %></li>
           <li><%= link_to("ユーザー一覧", "/blogs/users", class: "link-color") %></li>
           <li><%= link_to("ブログ作成", "/blogs/new", class: "link-color") %></li>
-          <br></br>
           <% if @current_user.nil? %>
           <% else %>
             <li><%= link_to(@current_user.name, "/blogs/user/#{@current_user.id}", class: "link-color") %></li>
