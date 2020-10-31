@@ -2,13 +2,13 @@
 @media(max-width: 670px) {
     header {
         height: 200px;
-    }
-    //通常ヘッダーリンク
-    .link {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
         align-content: space-between;
+    }
+    //通常ヘッダーリンク
+    .link {
         list-style-type: none;
     }
     //各リンク
