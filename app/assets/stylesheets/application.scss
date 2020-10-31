@@ -41,9 +41,10 @@ header {
     justify-content: space-around;
     list-style-type: none;
 }
-/* ページリンク(スマホ用) */
-.drawer {
-    display: none;
+/*ページリンクカラー*/
+.link-color {
+    color: white;
+    text-decoration: none;
 }
 /*プロフィール画像*/
 .profile-image {
@@ -52,11 +53,6 @@ header {
     object-fit: cover;
     border-radius: 50%;
     display: inline-block;
-}
-/*ページリンクカラー*/
-.link-color {
-    color: white;
-    text-decoration: none;
 }
 /* ページタイトル */
 .page-title {
