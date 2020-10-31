@@ -57,7 +57,7 @@ class UserController < ApplicationController
   #ユーザー詳細
   def show
     @user = User.find_by(id: params[:id])
-    @posts = Post.all.page(params[:page]).per(5)
+    @posts = Post.where(user_id: session[:user_id]).page(params[:page]).per(5)
   end
   
   #ユーザー編集
