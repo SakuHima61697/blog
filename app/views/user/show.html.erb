@@ -33,6 +33,9 @@
                     <% end %>
             </table>
     <br></br>
+    <!--ブログ一覧ページ表示-->
+    <%= paginate @posts %>
+    <br></br>
     <!--リンク-->
     <div class="user-show-link">
         <% if @user&.id == @current_user&.id %>
@@ -43,7 +46,5 @@
         <%= link_to("ユーザー一覧へ", "/blogs/users", class: "user-show-link btn btn-success") %>
     </div>
     <br></br>
-    <!--ブログ一覧ページ表示-->
-    <%= paginate @posts %>
 </div>
 
