@@ -68,15 +68,9 @@ class UserController < ApplicationController
   #ユーザー編集
   def update
     @user = User.find_by(id: params[:id])
-    @user.name = params[:name]
-    @user.email = params[:email]
-    @user.url = params[:url]
-    @user.content = params[:content]
-    @user.password = params[:password]
-    @user.password_confirmation = params[:password_confirmation]
-    @user.image = params[:image]
+    @post = Post.find_by(id: params[:id])
     
-    if @user.save
+    if @user.update(user_params) && @post.update(user_name: session[:user_name])
       flash[:notice] = "ユーザー情報を更新しました！"
       redirect_to("/blogs/user/#{@user.id}")
     else
@@ -95,6 +89,11 @@ class UserController < ApplicationController
          flash[:notice] = "権限がありません！"
          redirect_to("/blogs")
      end
+  end
+  
+  #ユーザーパラメータ
+  def user_params
+    params.permit(:name, :email, :url, :content, :password, :password_confirmation, :image)
   end
   
 end
