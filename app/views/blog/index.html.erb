@@ -10,10 +10,13 @@
     <br></br>
     <!--並び替えリンク-->
     <tr>
-      <th class="blog-sort"><%= sort_link(@q, :title, "タイトル", class: "blog-sort") %></th>
-      <th class="blog-sort"><%= sort_link(@q, :genre, "ジャンル", class: "blog-sort") %></th>
-      <th class="blog-sort"><%= sort_link(@q, :user_name, "作成者", class: "blog-sort") %></th>
-      <th class="blog-sort"><%= sort_link(@q, :created_at, "作成日", class: "blog-sort") %></th>
+      <th><%= sort_link(@q, :title, "タイトル") %></th>
+      <th class="blog-sort"></th>
+      <th><%= sort_link(@q, :genre, "ジャンル") %></th>
+      <th class="blog-sort"></th>
+      <th><%= sort_link(@q, :user_name, "作成者") %></th>
+      <th class="blog-sort"></th>
+      <th><%= sort_link(@q, :created_at, "作成日") %></th>
       <th colspan="3"></th>
     </tr>
     <br></br>
