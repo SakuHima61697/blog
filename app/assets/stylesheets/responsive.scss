@@ -2,10 +2,11 @@
 @media(max-width: 670px) {
     //通常ヘッダーリンク
     .link {
-    width: 50%;
+    width: 60%;
     text-align: center;
     display: flex;
     justify-content: space-around;
     list-style-type: none;
+    flex-wrap: wrap;
     }
 }
