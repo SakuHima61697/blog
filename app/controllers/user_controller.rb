@@ -72,7 +72,7 @@ class UserController < ApplicationController
     
     if @user.update(user_params)
       if @posts
-        @posts.update_all(user_name: session[:user_name])
+        @posts.update_all(user_name: @user.name)
       end
       flash[:notice] = "ユーザー情報を更新しました！"
       redirect_to("/blogs/user/#{@user.id}")
