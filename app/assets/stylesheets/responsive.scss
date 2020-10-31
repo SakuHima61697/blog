@@ -2,11 +2,15 @@
 @media(max-width: 670px) {
     //通常ヘッダーリンク
     .link {
-    width: 60%;
-    padding: 30px;
+    width: 50%;
     display: flex;
     flex-wrap: wrap;
     align-content: space-around;
     list-style-type: none;
+    }
+    .link-color {
+    color: white;
+    text-decoration: none;
+    padding: 50px;
     }
 }
