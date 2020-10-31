@@ -2,16 +2,11 @@
 @media(max-width: 670px) {
     //通常ヘッダーリンク
     .link {
-    width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     align-content: space-around;
     list-style-type: none;
-        display: flex;
-        flex-wrap: wrap;
-        align-content: space-around;
-        list-style-type: none;
     }
     //各リンク
     .link-color {
