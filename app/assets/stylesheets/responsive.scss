@@ -2,6 +2,12 @@
 @media(max-width: 670px) {
     //通常ヘッダーリンク
     .link {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-around;
+    list-style-type: none;
         display: flex;
         flex-wrap: wrap;
         align-content: space-around;
@@ -9,9 +15,12 @@
     }
     //各リンク
     .link-color {
+    color: white;
+    text-decoration: none;
+    margin: 45%;
         color: white;
         text-decoration: none;
+        padding: 20px;
         width: 50%;
-        margin: 10px auto;
     }
 }
