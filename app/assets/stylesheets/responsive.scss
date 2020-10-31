@@ -1,7 +1,7 @@
 //スマホ対応
 @media(max-width: 670px) {
     header {
-        height: 500px;
+        height: 200px;
     }
     //通常ヘッダーリンク
     .link {
@@ -17,7 +17,8 @@
         text-decoration: none;
         color: white;
         text-decoration: none;
-        padding: 10px;
+        padding: 30px;
+        margin: 30px;
         width: 100%;
     }
 }
