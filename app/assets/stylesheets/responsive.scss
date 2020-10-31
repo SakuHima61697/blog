@@ -1,10 +1,9 @@
 //スマホ対応
 @media(max-width: 670px) {
     header {
-        height: 200px;
-        display: flex;
-        flex-wrap: wrap;
-        align-content: space-between;
+        text-align: center;
+        background-color: green;
+        padding: 10px;
     }
     //通常ヘッダーリンク
     .link {
@@ -12,9 +11,7 @@
     }
     //各リンク
     .link-color {
-        width: 100%;
         color: white;
         text-decoration: none;
-        padding: 50px;
     }
 }
