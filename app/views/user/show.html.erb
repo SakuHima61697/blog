@@ -44,6 +44,8 @@
     </div>
     <br></br>
     <!--ブログ一覧ページ表示-->
-    <%= paginate @posts %>
+    <% if @posts %>
+        <%= paginate @posts %>
+    <% end %>
 </div>
 
