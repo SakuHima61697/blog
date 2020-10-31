@@ -68,10 +68,10 @@ class UserController < ApplicationController
   #ユーザー編集
   def update
     @user = User.find_by(id: params[:id])
-    @post = Post.find_by(user_id: session[:user_id])
+    @posts = Post.where(user_id: session[:user_id])
     
     if @user.update(user_params)
-      @post&.update(user_name: session[:user_name])
+      @posts&.update(user_name: session[:user_name])
       flash[:notice] = "ユーザー情報を更新しました！"
       redirect_to("/blogs/user/#{@user.id}")
     else
