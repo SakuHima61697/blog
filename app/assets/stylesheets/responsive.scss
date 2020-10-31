@@ -1,11 +1,14 @@
 //スマホ対応
 @media(max-width: 670px) {
+    header {
+        height: 500px;
+    }
     //通常ヘッダーリンク
     .link {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
-        align-content: space-around;
+        align-content: space-between;
         list-style-type: none;
     }
     //各リンク
@@ -14,7 +17,7 @@
         text-decoration: none;
         color: white;
         text-decoration: none;
-        padding: 100px;
+        padding: 10px;
         width: 100%;
     }
 }
