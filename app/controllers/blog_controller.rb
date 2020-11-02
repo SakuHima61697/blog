@@ -1,6 +1,6 @@
 class BlogController < ApplicationController
   
-  before_action :ensure_correct_user_create, {only: [:create, :new]}
+  before_action :ensure_correct_user_access, {only: [:create, :new, :update, :edit, :delete, :destroy]}
   before_action :ensure_correct_user_edit, {only: [:update, :edit, :delete, :destroy]}
   
   #ブログ一覧ページ
@@ -77,14 +77,14 @@ class BlogController < ApplicationController
   #ブログ編集・削除権限
     def ensure_correct_user_edit
       @post = Post&.find_by(id: params[:id])
-      if @current_user&.id != @post&.user_id
+      if @current_user.id != @post&.user_id
         flash[:alert] = "権限がありません"
         redirect_to("/blogs")
       end
     end
     
-  #ブログ作成権限
-    def ensure_correct_user_create
+  #ブログアクセス権限
+    def ensure_correct_user_access
       if !@current_user
         flash[:alert] = "権限がありません"
         redirect_to("/blogs")
