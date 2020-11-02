@@ -93,6 +93,7 @@ class UserController < ApplicationController
   #ユーザー削除(ユーザー情報表示)
   def delete
     @user = User.find_by(id: params[:id])
+    @posts = Post.where(user_id: session[:user_id])
   end
   
   #ユーザー削除処理

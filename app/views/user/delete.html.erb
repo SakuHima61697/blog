@@ -24,7 +24,7 @@
                         ブログ一覧
                     </th>
                 </tr>
-                    <% @posts&.each do |post| %>
+                    <% @posts.each do |post| %>
                         <% if post&.user_id == @user&.id %>
                             <tr>
                                 <td>
