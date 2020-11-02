@@ -1,12 +1,12 @@
 <div class="user-show">
     <h1 class="user-show-title"><%= @user.name %></h1>
-    <div>
+        <div>
         <!--プロフィール画像-->
         <% if @user.image.url %>
             <%= image_tag @user.image.url, class: "profile-image" %>
         <% end %>
-        <br></br>
-    </div>
+            <br></br>
+        </div>
         <!--URL-->
         <% if @user.url != nil %>
             <p>URL: <%= link_to(@user.url, @user.url) %></p>
@@ -14,37 +14,37 @@
             <br></br>
             <p>自己紹介</p>
             <%= @user.content %>
-    <br></br>
-            <!--ユーザー作成ブログ一覧-->
-            <table class="user-show-blog-title">
-                <tr>
-                    <th class="user-show-blog-title">
-                        ブログ一覧
-                    </th>
-                </tr>
-                    <% @posts.each do |post| %>
-                        <% if post&.user_id == @user&.id %>
-                            <tr>
-                                <td>
-                                    <%= link_to(post.title, "/blogs/show/#{post.id}") %>
-                                </td>
-                            </tr>
-                        <% end %>
+            <br></br>
+        <!--ユーザー作成ブログ一覧-->
+        <table class="user-show-blog-title">
+            <tr>
+                <th class="user-show-blog-title">
+                    ブログ一覧
+                </th>
+            </tr>
+                <% @posts.each do |post| %>
+                    <% if post&.user_id == @user&.id %>
+                        <tr>
+                            <td>
+                                <%= link_to(post.title, "/blogs/show/#{post.id}") %>
+                            </td>
+                        </tr>
                     <% end %>
-            </table>
-    <br></br>
-    <!--ブログ一覧ページ表示-->
-    <%= paginate @posts %>
-    <br></br>
-    <!--リンク-->
-    <div class="user-show-link">
-        <% if @user&.id == @current_user&.id %>
-            <%= link_to("編集", "/blogs/user/edit/#{@user.id}", class: "btn btn-primary") %>
-        <% end %>
+                <% end %>
+        </table>
         <br></br>
-        <%= link_to("ブログ一覧へ", "/blogs", class: "user-show-link btn btn-success") %>
-        <%= link_to("ユーザー一覧へ", "/blogs/users", class: "user-show-link btn btn-success") %>
-    </div>
+        <!--ブログ一覧表示-->
+        <%= paginate @posts %>
+        <br></br>
+        <!--リンク-->
+        <div class="user-show-link">
+            <% if @user&.id == @current_user&.id %>
+                <%= link_to("編集", "/blogs/user/edit/#{@user.id}", class: "btn btn-primary") %>
+            <% end %>
+            <br></br>
+            <%= link_to("ブログ一覧へ", "/blogs", class: "user-show-link btn btn-success") %>
+            <%= link_to("ユーザー一覧へ", "/blogs/users", class: "user-show-link btn btn-success") %>
+        </div>
     <br></br>
 </div>
 

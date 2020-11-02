@@ -1,5 +1,5 @@
 <div class="blog-delete">
-    <h1 class="page-title">削除確認</h1>
+    <h1 class="page-title-alert">削除確認</h1>
     <br></br>
         <p>タイトル</p>
         <p><%= @post.title %></p>
@@ -10,7 +10,7 @@
             <%= @post.content %>
         </div>
     <br></br>
-        <%= link_to("削除", "/blogs/delete/#{@post.id}", method: :destroy,  class: "delete-link btn btn-danger") %>
-        <%= link_to("ブログ詳細画面へ戻る", "/blogs/show/#{@post.id}",  class: "delete-link btn btn-success") %>
-        <br></br>
+        <%= link_to("削除", "/blogs/delete/#{@post.id}", method: :destroy,  class: "blog-delete-link btn btn-danger") %>
+        <%= link_to("ブログ詳細画面へ戻る", "/blogs/show/#{@post.id}",  class: "blog-delete-link btn btn-success") %>
+    <br></br>
 </div>

@@ -1,38 +1,50 @@
 Rails.application.routes.draw do
   
+  #ブログサイトトップ
   root  'blog#index'
   
+  #ブログ一覧ページ
   get 'blogs' => "blog#index"
   
+  #ブログ作成ページ
   get 'blogs/new' => "blog#new"
   post "blogs/new" => "blog#create"
   
+  #ブログ編集ページ
   get "blogs/update/:id" => "blog#update"
   post "blogs/update/:id" => "blog#edit"
   
+  #ブログ削除ページ
   get "blogs/delete/:id" => "blog#delete"
   post "blogs/delete/:id" => "blog#destroy"
   
+  #ブログ詳細ページ
   get 'blogs/show/:id' => "blog#show"
   
-  get 'blogs/update'
-  get 'blogs/delete'
-  
+  #ログインページ
   get 'blogs/login' => "user#login_form"
   post "blogs/login" => "user#login"
   
+  #サインアップページ
   get  'blogs/signup' => "user#new"
   post "blogs/signup" => "user#create"
   
+  #ユーザー一覧ページ
   get "blogs/users" => "user#index"
 
+  #ユーザー詳細ページ
   get "blogs/user/:id" => "user#show"
   
+  #ログアウト
   post "user/logout" => "user#logout"
   
+  #ユーザー編集ページ
   get "blogs/user/edit/:id" => "user#edit"
   post "blogs/user/edit/:id" => "user#update"
   
+  #ユーザー削除ページ
+  get "blogs/user/delete/:id" => "user#delete"
+  post "blogs/user/delete/:id" => "user#destroy"
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   
