@@ -5,6 +5,7 @@
 // ブログ作成画面
 .blog-create {
     text-align: center;
+    width: 80%;
 }
 //ブログ入力フォーム
 .blog-content-form {
@@ -14,6 +15,7 @@
 // ブログ更新画面　-----------------------------------------
 .blog-update {
     text-align: center;
+    width: 80%;
 }
 //ブログフォーム
 .blog-form {
@@ -65,12 +67,12 @@
 .blog-show {
     text-align: center;
     color: darkgreen;
+    width: 80%;
 }
 //ブログコンテンツ
 .blog-content {
     display: inline-block;
     text-align: left;
-    width: 80%;
 }
 //ユーザーリンク
 .user-link{
@@ -86,6 +88,7 @@
 // ブログ削除画面
 .blog-delete{
     text-align: center;
+    width: 80%;
 }
 //削除
 .delete-link {
