@@ -77,7 +77,7 @@ class BlogController < ApplicationController
   #ブログ編集・削除権限
     def ensure_correct_user_edit
       @post = Post&.find_by(id: params[:id])
-      if @current_user.id != @post&.user_id
+      if @current_user&.id != @post&.user_id
         flash[:alert] = "権限がありません"
         redirect_to("/blogs")
       end
