@@ -50,7 +50,7 @@ class BlogController < ApplicationController
       flash[:notice] = "編集が完了しました！"
       redirect_to("/blogs")
     else
-      flash[:notice] = "入力し直してください"
+      flash[:alert] = "入力し直してください"
       render("blog/update")
     end
   end
@@ -74,11 +74,11 @@ class BlogController < ApplicationController
       params.permit(:title, :genre, :content)
     end
     
-  #ブログ編集権限
+  #ブログ編集・削除権限
     def ensure_correct_user_edit
       @post = Post&.find_by(id: params[:id])
       if @current_user.id != @post&.user_id
-        flash[:notice] = "権限がありません"
+        flash[:alert] = "権限がありません"
         redirect_to("/blogs")
       end
     end
@@ -86,7 +86,7 @@ class BlogController < ApplicationController
   #ブログ作成権限
     def ensure_correct_user_create
       if !@current_user
-        flash[:notice] = "権限がありません"
+        flash[:alert] = "権限がありません"
         redirect_to("/blogs")
       end
     end
