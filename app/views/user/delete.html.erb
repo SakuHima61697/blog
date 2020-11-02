@@ -5,8 +5,10 @@
         <% if @user.image.url %>
             <%= image_tag @user.image.url, class: "profile-image" %>
         <% end %>
-            <br></br>
         </div>
+        <p>ユーザー名</p>
+        <%= @user.name %>
+        <br></br>
         <!--URL-->
         <% if @user.url != nil %>
             <p>URL: <%= link_to(@user.url, @user.url) %></p>
