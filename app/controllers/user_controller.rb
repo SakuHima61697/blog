@@ -101,7 +101,7 @@ class UserController < ApplicationController
     @user = User.find_by(id: params[:id])
     @posts = Post.where(user_id: session[:user_id])
     
-    @posts.destroy
+    @posts.destroy_all
     @user.destroy
     
     session[:user_id] = nil

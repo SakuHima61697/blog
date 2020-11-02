@@ -1,12 +1,11 @@
 <div class="user-delete">
-    <h1 class="page-title">ユーザー削除</h1>
+    <h1 class="page-title-alert">ユーザー削除</h1>
         <div>
         <!--プロフィール画像-->
         <% if @user.image.url %>
             <%= image_tag @user.image.url, class: "profile-image" %>
         <% end %>
         </div>
-        <p>ユーザー名</p>
         <%= @user.name %>
         <br></br>
         <!--URL-->
