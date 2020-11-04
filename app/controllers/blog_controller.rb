@@ -2,6 +2,7 @@ class BlogController < ApplicationController
   
   before_action :ensure_correct_user_access, {only: [:create, :new, :update, :edit, :delete, :destroy]}
   before_action :ensure_correct_user_edit, {only: [:update, :edit, :delete, :destroy]}
+  before_action :ensure_admin_access, {only: [:index, :show, :new, :create, :update, :edit, :delete, :destroy]}
   
   #ブログ一覧ページ
   def index
@@ -85,9 +86,17 @@ class BlogController < ApplicationController
     
   #ブログアクセス権限
     def ensure_correct_user_access
-      if !@current_user || @current_user.admin == true
+      if !@current_user
         flash[:alert] = "権限がありません"
         redirect_to("/blogs")
+      end
+    end
+    
+  #ブログアクセス権限(管理者)
+    def ensure_admin_access
+      if @current_user.admin == true
+        flash[:alert] = "権限がありません"
+        redirect_to("/admin/index")
       end
     end
 end

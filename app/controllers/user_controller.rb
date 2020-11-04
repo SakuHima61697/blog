@@ -2,6 +2,8 @@ class UserController < ApplicationController
   before_action :authenticate_user, {only: [:edit, :update, :delete, :destroy]}
   before_action :forbid_login_user, {only: [:new, :create, :login, :login_form]}
   before_action :ensure_correct_user, {only: [:edit, :update, :delete, :destroy]}
+  before_action :ensure_admin_access, {only: [:new, :create, :login_form, :login, :logout, :index, :show, :edit, :update, :delete, :destroy]}
+  
   
   #ユーザー作成(エラーメッセージ取得用)
   def new
@@ -113,7 +115,7 @@ class UserController < ApplicationController
   private
   #ユーザー権限
   def ensure_correct_user
-     if @current_user.id != params[:id].to_i || @current_user.admin == true
+     if @current_user.id != params[:id].to_i
          flash[:alert] = "権限がありません！"
          redirect_to("/blogs")
      end
@@ -124,4 +126,11 @@ class UserController < ApplicationController
     params.permit(:name, :email, :url, :content, :password, :password_confirmation, :image)
   end
   
+  #ブログアクセス権限(管理者)
+    def ensure_admin_access
+      if @current_user.admin == true
+        flash[:alert] = "権限がありません"
+        redirect_to("/admin/index")
+      end
+    end
 end
