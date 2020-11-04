@@ -10,14 +10,14 @@
         </tr>
       </thead>
       <tbody>
-        <% if @user&.admin == false %>
             <% @users.each do |user| %>
-              <tr>
-                <td><%= user.id %></td>
-            	<td><%= user.name %></td>
-            	<td><%= user.created_at %></td>
-            	<td><%= link_to("ユーザー削除", "/admin/users/delete/#{user.id}", method: :destroy, class: "btn btn-danger") %></td>
-              </tr>
+              <% if user&.admin == false %>
+                <tr>
+                  <td><%= user.id %></td>
+                	<td><%= user.name %></td>
+                	<td><%= user.created_at %></td>
+                	<td><%= link_to("ユーザー削除", "/admin/users/delete/#{user.id}", method: :destroy, class: "btn btn-danger") %></td>
+                </tr>
             <% end %>
         <% end %>
       </tbody>
