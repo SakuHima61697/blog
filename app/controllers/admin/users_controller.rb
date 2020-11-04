@@ -1,5 +1,7 @@
 class Admin::UsersController < ApplicationController
-    
+
+before_action :admin_user_access, {only: [:index, :destroy]}    
+
   #ログイン処理
   def login
     @user = User.find_by(email: params[:email],)
