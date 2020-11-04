@@ -85,7 +85,7 @@ class BlogController < ApplicationController
     
   #ブログアクセス権限
     def ensure_correct_user_access
-      if !@current_user || @admin_user
+      if !@current_user || @current_user.admin == true
         flash[:alert] = "権限がありません"
         redirect_to("/blogs")
       end

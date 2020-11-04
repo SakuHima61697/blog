@@ -6,6 +6,7 @@ before_action :admin_user_access, {only: [:index, :destroy]}
   def login
     @user = User.find_by(email: params[:email],)
     if @user&.authenticate(params[:password])
+      session[:user_id] = @user.id
       session[:admin] = @user.admin
       flash[:notice] = "ログインしました！"
       redirect_to("/admin")
@@ -19,6 +20,7 @@ before_action :admin_user_access, {only: [:index, :destroy]}
   
   #ログアウト処理
   def logout
+    session[:user_id] = nil
     session[:admin] = nil
       flash[:notice] = "ログアウトしました！"
     redirect_to("/admin/login")

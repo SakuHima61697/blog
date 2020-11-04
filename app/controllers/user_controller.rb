@@ -113,7 +113,7 @@ class UserController < ApplicationController
   private
   #ユーザー権限
   def ensure_correct_user
-     if @current_user.id != params[:id].to_i || @admin_user
+     if @current_user.id != params[:id].to_i || @current_user.admin == true
          flash[:alert] = "権限がありません！"
          redirect_to("/blogs")
      end

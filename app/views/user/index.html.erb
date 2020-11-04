@@ -2,7 +2,7 @@
     <h1 class="page-title">ユーザー一覧</h1>
     <!--ユーザー一覧表示-->
     <% @users.each do |user| %>
-        <% if !@admin_user %>
+        <% if @user.admin == false %>
             <% if user.image.url %>
                 <%= image_tag user.image.url, class: "profile-image" %>
             <% end %>
