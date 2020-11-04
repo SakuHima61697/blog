@@ -58,7 +58,7 @@ Rails.application.routes.draw do
     post "/logout" => "users#logout"
   
     #管理者一覧
-    get "/" => "users#index"
+    get "/index" => "users#index"
   
     #ユーザー削除
     post "/users/delete/:id" => "users#destroy"

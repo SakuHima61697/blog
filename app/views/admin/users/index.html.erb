@@ -10,13 +10,15 @@
         </tr>
       </thead>
       <tbody>
-        <% @users.each do |user| %>
-          <tr>
-            <td><%= user.id %></td>
-        	<td><%= user.name %></td>
-        	<td><%= user.created_at %></td>
-        	<td><%= link_to("ユーザー削除", "/admin/users/delete/#{user.id}", method: :destroy, class: "btn btn-danger") %></td>
-          </tr>
+        <% if !@admin_user %>
+            <% @users.each do |user| %>
+              <tr>
+                <td><%= user.id %></td>
+            	<td><%= user.name %></td>
+            	<td><%= user.created_at %></td>
+            	<td><%= link_to("ユーザー削除", "/admin/users/delete/#{user.id}", method: :destroy, class: "btn btn-danger") %></td>
+              </tr>
+            <% end %>
         <% end %>
       </tbody>
     </table>
