@@ -94,7 +94,7 @@ class BlogController < ApplicationController
     
   #ブログアクセス権限(管理者)
     def ensure_admin_access
-      if @current_user.admin == true
+      if @current_user&.admin == true
         flash[:alert] = "権限がありません"
         redirect_to("/admin/index")
       end
