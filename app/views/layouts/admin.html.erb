@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Title</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+    <!-- Bootstrap CSS読み込みコード-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Bootstrap JavaScript読み込みコード-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="responsive.scss">
+
+  </head>
+
+  <body>
+    <div id="wrapper">
+      <header>
+          <!-- ヘッダーリンク -->
+          <% if @current_user&.admin == true %>
+            <div class="link">
+              <li><%= link_to("ユーザー一覧", "/admin/index", class: "link-color") %></li>
+              <li><%= link_to("ログアウト", "/admin/logout", class: "link-color", method: :post) %></li>
+            </div>
+          <% end %>
+      </header>
+      <!-- フラッシュメッセージ(成功時) -->
+      <% if flash[:notice] %>
+        <div class="flash alert alert-success">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
+      <!-- フラッシュメッセージ(失敗時) -->
+      <% if flash[:alert] %>
+        <div class="flash alert alert-danger">
+          <%= flash[:alert] %>
+        </div>
+      <% end %>
+      <%= yield %>
+      <!-- フッター -->
+      <footer>
+        <h6>@2020 create by index</h6>
+      </footer>
+    </div>
+  </body>
+</html>

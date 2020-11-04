@@ -2,7 +2,9 @@ class Admin::UsersController < ApplicationController
 
 before_action :admin_user_access, {only: [:index, :destroy]}
 before_action :forbid_admin_login_user, {only: [:login_form, :login]}
-
+  
+  layout "admin"
+  
   #ログイン画面
   def login_form
   end
