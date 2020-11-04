@@ -9,4 +9,4 @@ User.create!(name: "管理者",
             email: ENV['EMAIL'],
             password: ENV['PASSWORD'],
             password_confirmation: ENV['PASSWORD'] ,
-            administrator: true)
+            admin: true)
