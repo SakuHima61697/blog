@@ -22,7 +22,12 @@
     <div id="wrapper">
     <header>
       <!-- ヘッダーリンク -->
-      <% if @current_user %>
+      <% if @current_user.admin == true %>
+        <div class="link">
+          <li><%= link_to("ユーザー一覧", "/admin/index", class: "link-color") %></li>
+          <li><%= link_to("ログアウト", "/admin/logout", class: "link-color", method: :post) %></li>
+        </div>
+      <% elsif @current_user %>
         <div class="link">
           <li><%= link_to("ブログ一覧", "/blogs", class: "link-color") %></li>
           <li><%= link_to("ユーザー一覧", "/blogs/users", class: "link-color") %></li>
@@ -34,7 +39,7 @@
           <% end %>
           <li><%= link_to("ログアウト", "/user/logout", class: "link-color", method: :post) %></li>
         </div>
-      <% elsif @current_user&.admin == true %>
+      <% elsif @current_user.admin == true %>
         <div class="link">
           <li><%= link_to("ユーザー一覧", "/admin/index", class: "link-color") %></li>
           <li><%= link_to("ログアウト", "/admin/logout", class: "link-color", method: :post) %></li>
