@@ -1,6 +1,13 @@
 <div class="login">
     <h1 class="page-title">管理者ログイン</h1>
     <br></br>
+        <!--エラーメッセージ-->
+        <% if @error_message %>
+          <div class="form-error">
+            <%= @error_message %>
+          </div>
+        <% end %>
+    <br></br>
     <!--ログインフォーム-->
     <%= form_tag("/admin/login", method: :post) do %>
         <div class="login-form">
