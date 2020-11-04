@@ -1,7 +1,7 @@
 class Admin::UsersController < ApplicationController
 
 before_action :admin_user_access, {only: [:index, :destroy]}
-before_action :forbid_login_user, {only: [:login_form, :login, :logout]}
+before_action :forbid_admin_login_user, {only: [:login_form, :login]}
 
   #ログイン画面
   def login_form
@@ -54,10 +54,10 @@ before_action :forbid_login_user, {only: [:login_form, :login, :logout]}
     end
     
   #ログイン済み確認
-    def forbid_login_user
-        if @current_user
+    def forbid_admin_login_user
+        if @current_user.admin == true
             flash[:alert] = "既にログインしています！"
-            redirect_to("/blogs")
+            redirect_to("/admin")
         end
     end
 end
