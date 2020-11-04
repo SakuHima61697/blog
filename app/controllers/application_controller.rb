@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
     before_action :set_current_user
+    before_action :admin_user
 
   #現在のユーザー
     def set_current_user
@@ -20,5 +21,10 @@ class ApplicationController < ActionController::Base
             flash[:alert] = "既にログインしています！"
             redirect_to("/blogs")
         end
+    end
+    
+    #管理者ユーザー
+    def admin_user
+       @admin_user = User.find_by(admin: true)
     end
 end

@@ -48,5 +48,20 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   
+  #管理者権限-----------------------------------
+  namespace :admin do
+    #管理者ログイン
+    get "/login" => "users#login_form"
+    post "/login" => "users#login"
+  
+    #管理者ログアウト
+    post "/logout" => "users#logout"
+  
+    #管理者一覧
+    get "/" => "users#index"
+  
+    #ユーザー削除
+    post "/users/delete/:id" => "users#destroy"
+  end
 
 end

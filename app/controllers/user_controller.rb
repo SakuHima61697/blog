@@ -35,11 +35,9 @@ class UserController < ApplicationController
   #ログイン処理
   def login
     @user = User.find_by(email: params[:email],)
-    
     if @user&.authenticate(params[:password])
       session[:user_id] = @user.id
       session[:user_name] = @user.name
-      
       flash[:notice] = "ログインしました！"
       redirect_to("/blogs")
     else
@@ -60,7 +58,7 @@ class UserController < ApplicationController
   
   #ユーザー一覧
   def index
-    @users = User.all.page(params[:page]).per(5)
+    @users = User.all.order(created_at: "ASC").page(params[:page]).per(5)
   end
   
   #ユーザー詳細
@@ -115,7 +113,7 @@ class UserController < ApplicationController
   private
   #ユーザー権限
   def ensure_correct_user
-     if @current_user.id != params[:id].to_i
+     if @current_user.id != params[:id].to_i || @admin_user
          flash[:alert] = "権限がありません！"
          redirect_to("/blogs")
      end

@@ -1,0 +1,17 @@
+<div class="login">
+    <h1 class="page-title">管理者ログイン</h1>
+    <br></br>
+    <!--ログインフォーム-->
+    <%= form_tag(controller: "user", action: "login") do %>
+        <div class="login-form">
+            <%= label_tag :メールアドレス %>
+            <%= text_field_tag :email, @email %>
+            <br></br>
+            <%= label_tag :パスワード %>
+            <%= password_field_tag :password, @password %>
+            <br></br>
+            <%= submit_tag :ログイン, class: "btn btn-primary" %>
+        </div>
+    <% end %>
+    <br></br>
+</div>
