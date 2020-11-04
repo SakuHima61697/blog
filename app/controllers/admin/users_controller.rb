@@ -14,7 +14,7 @@ before_action :forbid_login_user, {only: [:login_form, :login, :logout]}
       session[:user_id] = @user.id
       session[:admin] = @user.admin
       flash[:notice] = "ログインしました！"
-      redirect_to("/admin")
+      redirect_to("/admin/index")
     else
       @error_message = "メールアドレスまたはパスワードが間違っています"
       @email = params[:email]
