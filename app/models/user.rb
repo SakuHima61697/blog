@@ -1,7 +1,7 @@
 class User < ApplicationRecord
     has_secure_password
     mount_uploader :image, ImageUploader
-    validates :name, {presence: true}
+    validates :name, {presence: true, exclusion: { in: %w(管理者), message: "登録できないユーザー名です" }}
     validates :email, {presence: true, uniqueness: true}
     validates :password, {presence: true}
     

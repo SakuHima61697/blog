@@ -41,6 +41,7 @@ before_action :admin_user_access, {only: [:index, :destroy]}
   
   private
     def admin_user_access
+      flash[:alert] = "権限がありません！"
       redirect_to("/blogs") unless @current_user.admin?
     end
   
