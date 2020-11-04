@@ -57,7 +57,7 @@ before_action :forbid_admin_login_user, {only: [:login_form, :login]}
     
   #ログイン済み確認
     def forbid_admin_login_user
-        if @current_user.admin == true
+        if @current_user&.admin == true
             flash[:alert] = "既にログインしています！"
             redirect_to("/admin/index")
         end
