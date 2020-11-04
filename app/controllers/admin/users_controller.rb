@@ -1,7 +1,7 @@
 class Admin::UsersController < ApplicationController
 
 before_action :admin_user_access, {only: [:index, :destroy]}
-before_action :forbid_login_user, {only: [:login, :logout, :index, :destroy]}
+before_action :forbid_login_user, {only: [:login, :logout]}
 
 
   #ログイン処理
@@ -44,8 +44,17 @@ before_action :forbid_login_user, {only: [:login, :logout, :index, :destroy]}
   end
   
   private
+    #管理者アクセス制限
     def admin_user_access
       flash[:alert] = "権限がありません！"
       redirect_to("/blogs") unless @current_user.admin?
+    end
+    
+  #ログイン済み確認
+    def forbid_login_user
+        if @current_user
+            flash[:alert] = "既にログインしています！"
+            redirect_to("/blogs")
+        end
     end
 end
