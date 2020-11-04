@@ -49,8 +49,10 @@ before_action :forbid_admin_login_user, {only: [:login_form, :login]}
   private
     #管理者アクセス制限
     def admin_user_access
-      redirect_to("/blogs") unless @current_user.admin?
-      flash[:alert] = "権限がありません！"
+      if  @current_user.admin == false
+        redirect_to("/blogs")
+        flash[:alert] = "権限がありません！"
+      end
     end
     
   #ログイン済み確認
