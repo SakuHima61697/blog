@@ -21,7 +21,7 @@ before_action :forbid_admin_login_user, {only: [:login_form, :login]}
       @error_message = "メールアドレスまたはパスワードが間違っています!"
       @email = params[:email]
       @password = params[:password]
-      render("users/login_form")
+      render("admin/users/login_form")
     end
   end
   
