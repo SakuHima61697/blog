@@ -10,7 +10,7 @@
         </tr>
       </thead>
       <tbody>
-        <% if @user.admin == false %>
+        <% if @user&.admin == false %>
             <% @users.each do |user| %>
               <tr>
                 <td><%= user.id %></td>
