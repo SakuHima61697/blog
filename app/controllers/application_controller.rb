@@ -25,6 +25,6 @@ class ApplicationController < ActionController::Base
     
     #管理者ユーザー
     def admin_user
-       @admin_user = User.find_by(name: "管理者")
+       @admin_user = User.find_by(admin: true)
     end
 end
