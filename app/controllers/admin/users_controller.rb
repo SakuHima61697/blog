@@ -43,7 +43,7 @@ before_action :forbid_admin_login_user, {only: [:login_form, :login]}
     @posts.destroy_all
     @user.destroy
     flash[:alert] = "ユーザーを削除しました！"
-    redirect_to("/admin")
+    redirect_to("/admin/index")
   end
   
   private
@@ -57,7 +57,7 @@ before_action :forbid_admin_login_user, {only: [:login_form, :login]}
     def forbid_admin_login_user
         if @current_user.admin == true
             flash[:alert] = "既にログインしています！"
-            redirect_to("/admin")
+            redirect_to("/admin/index")
         end
     end
 end
