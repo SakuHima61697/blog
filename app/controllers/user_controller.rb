@@ -43,7 +43,7 @@ class UserController < ApplicationController
       flash[:notice] = "ログインしました！"
       redirect_to("/blogs")
     else
-      @error_message = "メールアドレスまたはパスワードが間違っています"
+      @error_message = "メールアドレスまたはパスワードが間違っています!"
       @email = params[:email]
       @password = params[:password]
       render("user/login_form")
@@ -129,7 +129,7 @@ class UserController < ApplicationController
   #ブログアクセス権限(管理者)
     def ensure_admin_access
       if @current_user&.admin == true
-        flash[:alert] = "権限がありません"
+        flash[:alert] = "権限がありません!"
         redirect_to("/admin/index")
       end
     end

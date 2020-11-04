@@ -18,7 +18,7 @@ before_action :forbid_admin_login_user, {only: [:login_form, :login]}
       flash[:notice] = "ログインしました！"
       redirect_to("/admin/index")
     else
-      @error_message = "メールアドレスまたはパスワードが間違っています"
+      @error_message = "メールアドレスまたはパスワードが間違っています!"
       @email = params[:email]
       @password = params[:password]
       render("users/login_form")
@@ -59,9 +59,12 @@ before_action :forbid_admin_login_user, {only: [:login_form, :login]}
     
   #ログイン済み確認
     def forbid_admin_login_user
-        if @current_user
+        if @current_user&.admin == true
             flash[:alert] = "既にログインしています！"
             redirect_to("/admin/index")
+        elsif  @current_user&.admin == false
+            redirect_to("/blogs")
+            flash[:alert] = "既にログインしています！"
         end
     end
 end

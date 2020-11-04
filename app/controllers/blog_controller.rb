@@ -79,7 +79,7 @@ class BlogController < ApplicationController
     def ensure_correct_user_edit
       @post = Post&.find_by(id: params[:id])
       if @current_user.id != @post&.user_id
-        flash[:alert] = "権限がありません"
+        flash[:alert] = "権限がありません!"
         redirect_to("/blogs")
       end
     end
@@ -87,7 +87,7 @@ class BlogController < ApplicationController
   #ブログアクセス権限
     def ensure_correct_user_access
       if !@current_user
-        flash[:alert] = "権限がありません"
+        flash[:alert] = "権限がありません!"
         redirect_to("/blogs")
       end
     end
@@ -95,7 +95,7 @@ class BlogController < ApplicationController
   #ブログアクセス権限(管理者)
     def ensure_admin_access
       if @current_user&.admin == true
-        flash[:alert] = "権限がありません"
+        flash[:alert] = "権限がありません!"
         redirect_to("/admin/index")
       end
     end
