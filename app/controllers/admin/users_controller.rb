@@ -33,7 +33,7 @@ before_action :forbid_admin_login_user, {only: [:login_form, :login]}
   
   #ユーザー一覧
   def index
-    @users = User.all.order(created_at: "ASC").page(params[:page]).per(5)
+    @users = User.all.order(created_at: "ASC").page(params[:page]).per(10)
   end
   
   #ユーザー削除
