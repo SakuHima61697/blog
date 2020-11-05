@@ -37,7 +37,7 @@
         <!--リンク-->
         <div class="admin-delete-link">
             <p class="alert">※ユーザー削除時に作成したブログも全て削除されます。</p>
-            <%= link_to("ユーザー削除", "/admin/users/destroy/#{user.id}", method: :destroy, class: "btn btn-danger") %>
+            <%= link_to("ユーザー削除", "/admin/users/destroy/#{@user.id}", method: :destroy, class: "btn btn-danger") %>
         </div>
     <br></br>
     <br></br>
