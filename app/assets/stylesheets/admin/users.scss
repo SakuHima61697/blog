@@ -87,12 +87,13 @@ footer {
 //ユーザー一覧画面-----------------------------------------
 .admin-user-index {
     text-align: center;
+    width: 100%;
 }
 //テーブル
 .table {
     margin-left: auto;
     margin-right: auto;
-    width: 500px;
+    width: 80%;
 }
 // ユーザー削除画面----------------------------------------
 .admin-delete {
