@@ -129,4 +129,16 @@ footer {
         color: white;
         text-decoration: none;
     }
+    //ユーザー一覧画面-----------------------------------------
+    .admin-user-index {
+        text-align: center;
+    }
+    //テーブル
+    .table {
+        display: inline-block;
+        text-align: center;
+        padding-left: 35%;
+        padding-right: 35%;
+    }
+
 }
