@@ -119,6 +119,7 @@ footer {
         text-align: center;
         background-color: green;
         padding: 10px;
+        width: 100%;
     }
     //通常ヘッダーリンク
     .link {
@@ -141,6 +142,8 @@ footer {
         text-align: center;
         padding-left: 5px;
         padding-right: 5px;
+        margin-left: auto;
+        margin-right: auto;
     }
     /* ページタイトル */
     .page-title {
@@ -151,5 +154,13 @@ footer {
     .page-title-alert {
         color: red;
         padding: 5px;
+    }
+    /*フッター*/
+    footer {
+        color: white;
+        text-align: center;
+        background-color: green;
+        margin-top: auto;
+        width: 100%;
     }
 }
