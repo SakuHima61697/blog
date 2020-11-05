@@ -90,8 +90,10 @@ footer {
 }
 //テーブル
 .table {
+    display: inline-block;
     text-align: center;
-    width: 80%;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 // ユーザー削除画面----------------------------------------
 .admin-delete {
