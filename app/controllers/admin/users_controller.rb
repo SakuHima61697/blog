@@ -39,6 +39,12 @@ before_action :forbid_admin_login_user, {only: [:login_form, :login]}
   end
   
   #ユーザー削除
+  def delete
+    @user = User.find_by(id: params[:id])
+    @posts = Post.where(user_id: @user.id)
+  end
+  
+  #ユーザー削除処理
   def destroy
     @user = User.find_by(id: params[:id])
     @posts = Post.where(user_id: @user.id)

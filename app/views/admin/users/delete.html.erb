@@ -1,0 +1,45 @@
+<div class="admin-delete">
+    <h1 class="page-title-alert">ユーザー削除</h1>
+        <div>
+            <!--プロフィール画像-->
+            <% if @user.image.url %>
+                <%= image_tag @user.image.url, class: "profile-image" %>
+            <% end %>
+            <p><%= @user.name %></p>
+            <br></br>
+        </div>
+        <!--URL-->
+        <% if @user.url != nil %>
+            <p>URL: <%= link_to(@user.url, @user.url) %></p>
+        <% end %>
+            <br></br>
+            <p>自己紹介</p>
+            <%= @user.content %>
+            <br></br>
+        <!--ユーザー作成ブログ一覧-->
+        <table class="admin-delete-blog-title">
+            <tr>
+                <th class="admin-delete-blog-title">ブログ一覧</th>
+            </tr>
+                <% @posts.each do |post| %>
+                    <% if post&.user_id == @user&.id %>
+                        <tr>
+                            <td>post.title</td>
+                        </tr>
+                    <% end %>
+                <% end %>
+        </table>
+        <br></br>
+        <!--ブログ一覧表示-->
+        <%= paginate @posts %>
+        <br></br>
+        <br></br>
+        <!--リンク-->
+        <div class="admin-delete-link">
+            <p class="alert">※ユーザー削除時に作成したブログも全て削除されます。</p>
+            <%= link_to("ユーザー削除", "/admin/users/destroy/#{user.id}", method: :destroy, class: "btn btn-danger") %>
+        </div>
+    <br></br>
+    <br></br>
+</div>
+

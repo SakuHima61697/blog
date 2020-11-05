@@ -18,16 +18,12 @@
         <!--ユーザー作成ブログ一覧-->
         <table class="user-show-blog-title">
             <tr>
-                <th class="user-show-blog-title">
-                    ブログ一覧
-                </th>
+                <th class="user-show-blog-title">ブログ一覧</th>
             </tr>
                 <% @posts.each do |post| %>
                     <% if post&.user_id == @user&.id %>
                         <tr>
-                            <td>
-                                <%= link_to(post.title, "/blogs/show/#{post.id}") %>
-                            </td>
+                            <td><%= link_to(post.title, "/blogs/show/#{post.id}") %></td>
                         </tr>
                     <% end %>
                 <% end %>

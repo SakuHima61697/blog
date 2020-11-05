@@ -61,7 +61,10 @@ Rails.application.routes.draw do
     get "/index" => "users#index"
   
     #ユーザー削除
-    post "/users/delete/:id" => "users#destroy"
+    get "/users/delete/:id" => "users#delete"
+    
+    #ユーザー削除処理
+    post "/users/destroy/:id" => "users#destroy"
   end
 
 end

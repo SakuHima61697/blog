@@ -84,3 +84,20 @@ footer {
     background-color: green;
     margin-top: auto;
 }
+// ユーザー削除画面----------------------------------------
+.admin-delete {
+    text-align: center;
+    color: darkgreen;
+}
+//リンク
+.admin-delete-link {
+    display: inline-block;
+    text-align: center;
+    padding: 20px;
+    margin: 20px;
+}
+//ブログタイトル
+.admin-delete-blog-title {
+    display: inline-block;
+    text-align: center;
+}
