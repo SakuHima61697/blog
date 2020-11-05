@@ -84,6 +84,16 @@ footer {
     background-color: green;
     margin-top: auto;
 }
+//ユーザー一覧画面-----------------------------------------
+.admin-user-index {
+    text-align: center;
+}
+//ユーザーテーブル
+.table {
+    display: block;
+    width: 80%;
+    padding: auto 50%;
+}
 // ユーザー削除画面----------------------------------------
 .admin-delete {
     text-align: center;
