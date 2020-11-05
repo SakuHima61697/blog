@@ -137,8 +137,17 @@ footer {
     .table {
         display: inline-block;
         text-align: center;
-        padding-left: 5%;
-        padding-right: 5%;
+        padding-left: 5px;
+        padding-right: 5px;
     }
-
+    /* ページタイトル */
+    .page-title {
+        color: seagreen;
+        padding: 5px;
+    }
+    /* ページタイトル削除画面 */
+    .page-title-alert {
+        color: red;
+        padding: 5px;
+    }
 }
