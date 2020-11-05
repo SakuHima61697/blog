@@ -1,7 +1,9 @@
 <div class="admin-user-index">
     <h1 class="page-title">登録済みのユーザー一覧</h1>
-    <table>
-      <thead>
+    <br></br>
+</div>
+    <table class="table">
+      <thead class="table">
         <tr>
           <th>id</th>
           <th>名前</th>
@@ -9,7 +11,7 @@
           <th>ユーザー削除</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody class="table">
             <% @users.each do |user| %>
               <% if user&.admin == false %>
                 <tr>
@@ -23,6 +25,7 @@
       </tbody>
     </table>
     <br></br>
-    <!--ユーザー一覧ページ表示-->
-    <%= paginate @users %>
-</div>
+    <div class="admin-user-index">
+      <!--ユーザー一覧ページ表示-->
+      <%= paginate @users %>
+    </div>
