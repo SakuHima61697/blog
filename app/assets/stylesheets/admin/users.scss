@@ -87,7 +87,6 @@ footer {
 //ユーザー一覧画面-----------------------------------------
 .admin-user-index {
     text-align: center;
-    width: 100%;
 }
 //テーブル
 .table {
@@ -111,4 +110,23 @@ footer {
 .admin-delete-blog-title {
     display: inline-block;
     text-align: center;
+}
+
+//スマホ対応
+@media(max-width: 670px) {
+    //ヘッダー
+    header {
+        text-align: center;
+        background-color: green;
+        padding: 10px;
+    }
+    //通常ヘッダーリンク
+    .link {
+        list-style-type: none;
+    }
+    //各リンク
+    .link-color {
+        color: white;
+        text-decoration: none;
+    }
 }
