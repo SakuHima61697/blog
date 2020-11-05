@@ -91,9 +91,10 @@ footer {
 //テーブル
 .table {
     display: inline-block;
-    text-align: center;
+    text-align: justify;
     margin-left: 5%;
     margin-right: 5%;
+    padding: 10px;
 }
 // ユーザー削除画面----------------------------------------
 .admin-delete {
