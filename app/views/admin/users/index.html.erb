@@ -2,9 +2,9 @@
     <h1 class="page-title">登録済みのユーザー一覧</h1>
     <br></br>
 </div>
-    <table>
+    <table class="table">
       <thead>
-        <tr class="table">
+        <tr>
           <th>id</th>
           <th>名前</th>
           <th>登録日</th>
@@ -14,7 +14,7 @@
       <tbody>
             <% @users.each do |user| %>
               <% if user&.admin == false %>
-                <tr class="table">
+                <tr>
                   <td><%= user.id %></td>
                 	<td><%= user.name %></td>
                 	<td><%= user.created_at.strftime("%Y年%m月%d日 %H:%M:%S") %></td>
