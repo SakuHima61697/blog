@@ -2,6 +2,8 @@ class Admin::BlogsController < ApplicationController
     
 before_action :admin_user_access, {only: [:index, :destroy]}
 
+    layout "admin"
+
     #ブログ一覧
     def index
         @blogs = Post.all.order(created_at: "ASC").page(params[:page]).per(10)
