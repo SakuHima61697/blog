@@ -1,21 +1,6 @@
-// Place all the styles related to the admin/users controller here.
+// Place all the styles related to the admin/blogs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
 @import "bootstrap";
 
 /* CSS全要素 */
@@ -49,14 +34,6 @@ header {
     color: white;
     text-decoration: none;
 }
-/*プロフィール画像*/
-.profile-image {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 50%;
-    display: inline-block;
-}
 /* ページタイトル */
 .page-title {
     color: seagreen;
@@ -69,10 +46,6 @@ header {
 .flash {
     text-align: center;
 }
-/* フォームエラー */
-.form-error {
-    list-style-type: none;
-}
 /* 警告文 */
 .alert {
     color: red;
@@ -84,8 +57,8 @@ footer {
     background-color: green;
     margin-top: auto;
 }
-//ユーザー一覧画面-----------------------------------------
-.admin-users-index {
+//ブログ一覧画面-----------------------------------------
+.admin-blogs-index {
     margin: 10px auto;
     display: block;
 }
@@ -93,23 +66,6 @@ footer {
 .table {
     text-align: center;
 }
-// ユーザー削除画面----------------------------------------
-.admin-delete {
-    text-align: center;
-    color: darkgreen;
-}
-//リンク
-.admin-delete-link {
-    display: inline-block;
-    text-align: center;
-    padding: 20px;
-}
-//ブログタイトル
-.admin-delete-blog-title {
-    display: inline-block;
-    text-align: center;
-}
-
 //スマホ対応-----------------------------------------------------
 @media(max-width: 670px) {
     //ヘッダー
@@ -128,8 +84,8 @@ footer {
         color: white;
         text-decoration: none;
     }
-    //ユーザー一覧画面-----------------------------------------
-    .admin-user-index {
+    //ブログ一覧画面-----------------------------------------
+    .admin-blogs-index {
         text-align: center;
         width: 100%;
     }
@@ -141,7 +97,7 @@ footer {
         padding-left: 5px;
         padding-right: 5px;
     }
-    //-----------------------------------------------------------
+    // --------------------------------------------------------
     /* ページタイトル */
     .page-title {
         color: seagreen;

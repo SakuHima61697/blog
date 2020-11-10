@@ -24,6 +24,7 @@
           <% if @current_user&.admin == true %>
             <div class="link">
               <li><%= link_to("ユーザー一覧", "/admin/index", class: "link-color") %></li>
+              <li><%= link_to("ブログ一覧", "/admin/blogs", class: "link-color") %></li>
               <li><%= link_to("ログアウト", "/admin/logout", class: "link-color", method: :post) %></li>
             </div>
           <% end %>

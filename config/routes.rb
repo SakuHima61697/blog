@@ -65,6 +65,11 @@ Rails.application.routes.draw do
     
     #ユーザー削除処理
     post "/users/destroy/:id" => "users#destroy"
+    
+    #ブログ一覧
+    get "/blogs"  => "blogs#index"
+    #ブログ削除処理
+    post "/blogs/destroy/:id" => "blogs#destroy"
   end
 
 end
