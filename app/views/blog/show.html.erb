@@ -28,7 +28,7 @@
     <% @comments&.each do |comment| %>
         <tr><%= comment&.content %></tr>
         <tr>
-                <td><%= comment&.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
+                <td><%= comment&.created_at&.strftime("%Y-%m-%d %H:%M:%S") %></td>
             <% if @user.id == comment.user_id %>
                 <td><%= comment&.user_name %></td>
             <% end %>
