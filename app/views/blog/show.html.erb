@@ -37,7 +37,7 @@
     <br></br>
     <%= paginate @comments %>
     <br></br>
-    <% form_with model: @comment do |form| %>
+    <%= form_with model: @comment do |form| %>
         <%= form.text_area :content %>
         <%= form.submit %>
     <% end %>
