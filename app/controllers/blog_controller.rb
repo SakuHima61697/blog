@@ -36,6 +36,19 @@ class BlogController < ApplicationController
   def show
     @post = Post.find_by(id: params[:id])
     @user = User.find_by(id: @post.user_id)
+    #コメント表示
+    @comments = Comment.all.order.(id: "ASC").page(params[:page]).per(10)
+  end
+  
+  #ブログ詳細(コメント欄)
+  def newComment
+    #コメント入力
+    @comment = Comment.new(content: params[:content],
+    user_name: session[:user_name])
+    if @comment.save
+      flash[:notice] = "コメントを入力しました！"
+      render("blog/show")
+    end
   end
 
   #ブログ更新ページ

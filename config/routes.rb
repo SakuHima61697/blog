@@ -21,6 +21,9 @@ Rails.application.routes.draw do
   #ブログ詳細ページ
   get 'blogs/show/:id' => "blog#show"
   
+  #ブログ詳細ページ
+  post "blogs/show/:id" => "blog#newComment"
+  
   #ログインページ
   get 'blogs/login' => "user#login_form"
   post "blogs/login" => "user#login"

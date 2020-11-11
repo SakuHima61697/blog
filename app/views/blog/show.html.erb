@@ -23,6 +23,26 @@
         <%= @post.content %>
     </div>
     <br></br>
+    <!-- コメント欄 -->
+    <h3 class="page-title">コメント欄</h3>
+    <% @comments&.each do |comment| %>
+        <tr><%= comment.content %></tr>
+        <tr>
+                <td><%= comment.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
+            <% if @user.id == comment.user_id %>
+                <td><%= comment.user_name %></td>
+            <% end %>
+        </tr>
+    <% end %>
+    <br></br>
+    <%= paginate @comments %>
+    <br></br>
+    <% form_with @comment, url: {controller: "blog", action: "newComment"} do %>
+        <%= form.text_area :content %>
+        <%= form.submit %>
+    <% end %>
+    <br></br>
+    <br></br>
     <!--リンク-->
     <% if @post&.user_id == @current_user&.id %>
         <%= link_to("ブログ編集", "/blogs/update/#{@post.id}",  class: "user-link btn btn-success") %>
