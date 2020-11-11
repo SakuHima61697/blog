@@ -37,7 +37,7 @@ class BlogController < ApplicationController
     @post = Post.find_by(id: params[:id])
     @user = User.find_by(id: @post.user_id)
     #コメント表示
-    @comments = Comment.all.order.(id: "ASC").page(params[:page]).per(10)
+    @comments = Comment.all.order(id: "ASC").page(params[:page]).per(10)
   end
   
   #ブログ詳細(コメント欄)
