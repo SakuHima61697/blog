@@ -44,7 +44,7 @@ class BlogController < ApplicationController
   #ブログ詳細(コメント欄)
   def newComment
     #コメント入力
-    @comment = Comment.new(comment_params,
+    @comment = Comment.new(**comment_params,
     user_name: session[:user_name])
     if @comment.save
       flash[:notice] = "コメントを入力しました！"
