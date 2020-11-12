@@ -18,15 +18,15 @@ Rails.application.routes.draw do
   get "blogs/delete/:id" => "blog#delete"
   post "blogs/delete/:id" => "blog#destroy"
   
+  #コメント削除
+  post "blogs/show/:id/comment" => "blog#deleteComment"
+
   #ブログ詳細ページ
   get 'blogs/show/:id' => "blog#show"
   
   #ブログ詳細ページ(コメント入力)
   post "blogs/show/:id" => "blog#newComment"
   
-  #コメント削除
-  delete "blogs/show/:id" => "blog#deleteComment"
-
   #ログインページ
   get 'blogs/login' => "user#login_form"
   post "blogs/login" => "user#login"
