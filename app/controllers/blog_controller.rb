@@ -89,6 +89,11 @@ class BlogController < ApplicationController
       params.permit(:title, :genre, :content)
     end
     
+  #コメントパラメータ
+    def comment_params
+      params.permit(:content)
+    end
+    
   #ブログ編集・削除権限
     def ensure_correct_user_edit
       @post = Post&.find_by(id: params[:id])
