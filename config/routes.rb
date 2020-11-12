@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   post "blogs/delete/:id" => "blog#destroy"
   
   #コメント削除
-  post "blogs/show/:id/comment" => "blog#deleteComment"
+  post "blogs/show/:id" => "blog#deleteComment"
 
   #ブログ詳細ページ
   get 'blogs/show/:id' => "blog#show"
