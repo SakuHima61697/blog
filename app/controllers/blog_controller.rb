@@ -63,6 +63,8 @@ class BlogController < ApplicationController
       @comment.destroy
       flash[:alert] = "コメントを削除しました！"
       redirect_to("/blogs/show/#{@post.id}")
+    else
+      render("blog/show")
     end
   end
 
