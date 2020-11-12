@@ -12,6 +12,8 @@ ja:
       post:
         title: タイトル
         genre: ジャンル
+      comment:
+        content: コメント
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
