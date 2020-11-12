@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   post "blogs/show/:id" => "blog#newComment"
   
   #コメント削除
-  post "/deleteComment" => "blog#deleteComment"
+  post "/blogs/comment/:id" => "blog#deleteComment"
 
   #ログインページ
   get 'blogs/login' => "user#login_form"
