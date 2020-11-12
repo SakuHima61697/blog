@@ -23,6 +23,9 @@ Rails.application.routes.draw do
   
   #ブログ詳細ページ(コメント入力)
   post "blogs/show/:id" => "blog#newComment"
+  
+  #コメント削除
+  post "blogs/comment/:id" => "blog#deleteComment"
 
   #ログインページ
   get 'blogs/login' => "user#login_form"

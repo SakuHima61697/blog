@@ -54,6 +54,14 @@ class BlogController < ApplicationController
       redirect_to("/blogs/show/#{@post.id}")
     end
   end
+  
+  #コメント削除
+  def deleteComment
+    @comment = Comment.find_by(id: params[:id])
+    @comment.destroy
+    flash[:notice] = "コメントを削除しました！"
+      redirect_to("/blogs/show/#{@post.id}")
+  end
 
   #ブログ更新ページ
   def update

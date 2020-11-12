@@ -26,13 +26,15 @@
     <!-- コメント欄 -->
     <h3 class="page-title">コメント欄</h3>
     <% @comments&.each do |comment| %>
-        <p><%= comment&.content %></p>
-        <tr>
-                <td class="comment"><%= comment&.created_at&.strftime("%Y-%m-%d %H:%M:%S") %></td>
-                <td class="comment"><%= link_to(comment&.user_name, "/blogs/user/#{comment.user_id}") %></td>
-                <td></td>
-        </tr>
-        </p>
+        <div class="comment">
+            <p><%= comment&.content %></p>
+            <tr>
+                <td><%= comment&.created_at&.strftime("%Y-%m-%d %H:%M:%S") %></td>
+                <td><%= link_to(comment&.user_name, "/blogs/user/#{comment.user_id}") %></td>
+                <td><%= link_to("削除", "blogs/comment/#{comment.id}", method: :destroy, class: "user-link btn btn-danger" ) %></td>
+            </tr>
+            </p>
+        </div>
     <% end %>
     <br></br>
     <% if @comments %>
