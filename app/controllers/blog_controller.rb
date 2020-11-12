@@ -1,8 +1,8 @@
 class BlogController < ApplicationController
   
-  before_action :ensure_correct_user_access, {only: [:create, :new, :update, :edit, :delete, :destroy, :newComment]}
+  before_action :ensure_correct_user_access, {only: [:create, :new, :update, :edit, :delete, :destroy, :newComment, :deleteComment]}
   before_action :ensure_correct_user_edit, {only: [:update, :edit, :delete, :destroy]}
-  before_action :ensure_admin_access, {only: [:index, :show, :new, :create, :update, :edit, :delete, :destroy, :newComment]}
+  before_action :ensure_admin_access, {only: [:index, :show, :new, :create, :update, :edit, :delete, :destroy, :newComment, :deleteComment]}
   
   #ブログ一覧ページ
   def index
@@ -58,9 +58,11 @@ class BlogController < ApplicationController
   #コメント削除
   def deleteComment
     @comment = Comment.find_by(id: params[:id])
-    @comment.destroy
-    flash[:notice] = "コメントを削除しました！"
+    if @comment.user_id == @current_user.id
+      @comment.destroy
+      flash[:notice] = "コメントを削除しました！"
       redirect_to("/blogs/show/#{@post.id}")
+    end
   end
 
   #ブログ更新ページ
