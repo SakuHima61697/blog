@@ -2,7 +2,7 @@
     <h1 class="page-title">ブログ一覧</h1>
     <br></br>
     <!--検索フォーム-->
-    <%= search_form_for @q, :url => { :controller => :blog, :action => :index } do |f| %>
+    <%= search_form_for @post_ransack, :url => { :controller => :blog, :action => :index } do |f| %>
       <%= f.label :title_or_genre_or_user_name, "ブログ名、ジャンル名、ユーザー名で検索", class: "blog-search-form" %>
       <%= f.search_field :title_or_genre_or_user_name_cont %>
       <%= f.submit "検索", class: "btn btn-primary" %>
@@ -10,10 +10,10 @@
     <br></br>
     <!--並び替えリンク-->
     <tr>
-        <th><%= sort_link(@q, :title, "タイトル") %></th>
-        <th><%= sort_link(@q, :genre, "ジャンル") %></th>
-        <th><%= sort_link(@q, :user_name, "作成者") %></th>
-        <th><%= sort_link(@q, :created_at, "作成日") %></th>
+        <th><%= sort_link(@post_ransack, :title, "タイトル") %></th>
+        <th><%= sort_link(@post_ransack, :genre, "ジャンル") %></th>
+        <th><%= sort_link(@post_ransack, :user_name, "作成者") %></th>
+        <th><%= sort_link(@post_ransack, :created_at, "作成日") %></th>
     </tr>
     <br></br>
         <!--ブログ一覧-->
