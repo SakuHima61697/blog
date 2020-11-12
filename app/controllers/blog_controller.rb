@@ -6,8 +6,8 @@ class BlogController < ApplicationController
   
   #ブログ一覧ページ
   def index
-    @q = Post.ransack(params[:q])
-    @posts = @q.result(distinct: true).page(params[:page]).per(10)
+    @post_ransack = Post.ransack(params[:q])
+    @posts = @post_ransack.result(distinct: true).page(params[:page]).per(10)
   end
 
   #ブログ作成ページ(エラーメッセージ取得用)
@@ -37,7 +37,7 @@ class BlogController < ApplicationController
     @post = Post&.find_by(id: params[:id])
     @user = User&.find_by(id: @post.user_id)
     #コメント表示
-    @comments = Comment&.all.order(id: "ASC").page(params[:page]).per(10)
+    @comments = Comment&.where(post_id: @post.id).order(id: "ASC").page(params[:page]).per(10)
   end
   
   #ブログ詳細(コメント欄)

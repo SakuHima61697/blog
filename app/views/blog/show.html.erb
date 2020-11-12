@@ -26,20 +26,23 @@
     <!-- コメント欄 -->
     <h3 class="page-title">コメント欄</h3>
     <% @comments&.each do |comment| %>
+        <p>
         <tr><%= comment&.content %></tr>
         <tr>
                 <td><%= comment&.created_at&.strftime("%Y-%m-%d %H:%M:%S") %></td>
-            <% if @user.id == comment.user_id %>
                 <td><%= comment&.user_name %></td>
-            <% end %>
         </tr>
+        </p>
     <% end %>
     <br></br>
     <%= paginate @comments %>
     <br></br>
-    <%= form_with model: @comment do |form| %>
-        <%= form.text_area :content %>
-        <%= form.submit %>
+    <!-- コメント入力欄 -->
+    <% if @current_user %>
+        <%= form_with model: @comment do |form| %>
+            <%= form.text_area :content %>
+            <%= form.submit %>
+        <% end %>
     <% end %>
     <br></br>
     <br></br>

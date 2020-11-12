@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   #ブログ詳細ページ
   get 'blogs/show/:id' => "blog#show"
   
-  #ブログ詳細ページ
+  #ブログ詳細ページ(コメント入力)
   post "blogs/show/:id" => "blog#newComment"
   
   #ログインページ
