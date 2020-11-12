@@ -43,12 +43,13 @@ class BlogController < ApplicationController
   
   #ブログ詳細(コメント欄)
   def newComment
+    @post = Post.find_by(id: params[:id])
     #コメント入力
     @comment = Comment.new(**comment_params,
     user_name: session[:user_name])
     if @comment.save
       flash[:notice] = "コメントを入力しました！"
-      render("blog/show")
+      redirect_to("/blogs/show/#{@post.id}")
     end
   end
 
