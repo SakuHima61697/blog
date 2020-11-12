@@ -59,11 +59,9 @@ class BlogController < ApplicationController
   def deleteComment
     @post = Post.find_by(id: params[:id])
     @comment = Comment.find_by(id: params[:id])
-    if @comment&.destroy
+    if @comment.destroy
       flash[:alert] = "コメントを削除しました！"
       redirect_to("/blogs/show/#{@post.id}")
-    else
-      render("blog/show")
     end
   end
 
