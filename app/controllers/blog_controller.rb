@@ -62,7 +62,7 @@ class BlogController < ApplicationController
     if @comment&.user_id == @current_user.id
       @comment.destroy
       flash[:notice] = "コメントを削除しました！"
-      redirect_to("/blogs/show/#{@post.id}")
+      redirect_to("/blogs")
     end
   end
 
