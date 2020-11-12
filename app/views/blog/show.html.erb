@@ -35,7 +35,9 @@
         </p>
     <% end %>
     <br></br>
-    <%= paginate @comments %>
+    <% if @comments %>
+        <%= paginate @comments %>
+    <% end %>
     <br></br>
     <!-- コメント入力欄 -->
     <% if @current_user %>
