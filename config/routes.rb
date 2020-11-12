@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   get 'blogs/show/:id' => "blog#show"
   
   #ブログ詳細ページ(コメント入力)
-  post "blogs/show/:id" => "blog#newComment"
+  post "blogs/show/:id/comment" => "blog#newComment"
   
   #ログインページ
   get 'blogs/login' => "user#login_form"

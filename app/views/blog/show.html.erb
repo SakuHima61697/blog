@@ -41,7 +41,7 @@
     <br></br>
     <!-- コメント入力欄 -->
     <% if @current_user %>
-        <%= form_with model: @comment, url: "/#{@post.id}" do |form| %>
+        <%= form_with model: @comment do |form| %>
             <%= form.text_area :content %>
             <%= form.submit %>
         <% end %>
