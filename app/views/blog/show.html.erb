@@ -27,10 +27,12 @@
     <h3 class="page-title">コメント欄</h3>
     <% @comments&.each do |comment| %>
         <p>
-        <tr><%= comment&.content %></tr>
+        <tr>
+            <td><%= comment&.content %></td>
+        </tr>
         <tr>
                 <td><%= comment&.created_at&.strftime("%Y-%m-%d %H:%M:%S") %></td>
-                <td><%= comment&.user_name %></td>
+                <td><%= link_to(comment&.user_name, "/blogs/user/#{@user.id}") %></td>
         </tr>
         </p>
     <% end %>
