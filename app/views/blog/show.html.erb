@@ -28,8 +28,9 @@
     <% @comments&.each do |comment| %>
         <p><%= comment&.content %></p>
         <tr>
-                <td><%= comment&.created_at&.strftime("%Y-%m-%d %H:%M:%S") %></td>
-                <td><%= link_to(comment&.user_name, "/blogs/user/#{comment.user_id}") %></td>
+                <td class="comment"><%= comment&.created_at&.strftime("%Y-%m-%d %H:%M:%S") %></td>
+                <td class="comment"><%= link_to(comment&.user_name, "/blogs/user/#{comment.user_id}") %></td>
+                <td></td>
         </tr>
         </p>
     <% end %>
