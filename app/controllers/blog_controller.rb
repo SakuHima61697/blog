@@ -63,7 +63,7 @@ class BlogController < ApplicationController
       flash[:alert] = "コメントを削除しました！"
       redirect_to("/blogs/show/#{@post&.id}")
     else
-      render("blog/show")
+      redirect_to("/blogs/show/#{@post&.id}")
     end
   end
 
