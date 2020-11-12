@@ -32,24 +32,24 @@
         </tr>
         <tr>
                 <td><%= comment&.created_at&.strftime("%Y-%m-%d %H:%M:%S") %></td>
-                <td><%= link_to(comment&.user_name, "/blogs/user/#{@user.id}") %></td>
+                <td><%= link_to(comment&.user_name, "/blogs/user/#{comment.use_id}") %></td>
         </tr>
         </p>
     <% end %>
     <br></br>
     <% if @comments %>
         <%= paginate @comments %>
+        <br></br>
     <% end %>
-    <br></br>
     <!-- コメント入力欄 -->
     <% if @current_user %>
         <%= form_with model: @comment do |form| %>
             <%= form.text_area :content %>
             <%= form.submit %>
         <% end %>
+        <br></br>
+        <br></br>
     <% end %>
-    <br></br>
-    <br></br>
     <!--リンク-->
     <% if @post&.user_id == @current_user&.id %>
         <%= link_to("ブログ編集", "/blogs/update/#{@post.id}",  class: "user-link btn btn-success") %>
