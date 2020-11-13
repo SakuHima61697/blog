@@ -33,7 +33,7 @@
                     <tr>
                         <td><%= comment&.created_at&.strftime("%Y-%m-%d %H:%M:%S") %></td>
                         <td><%= link_to(comment&.user_name, "/blogs/user/#{comment.user_id}") %></td>
-                        <% if comment&.user_id == @current_user.id %>
+                        <% if comment&.user_id == @current_user&.id %>
                             <td><%= link_to("削除", "/blogs/comment/#{comment.id}", class: "user-link btn btn-danger", method: :destroy ) %></td>
                         <% end %>
                     </tr>
