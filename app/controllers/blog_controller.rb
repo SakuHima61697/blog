@@ -57,7 +57,6 @@ class BlogController < ApplicationController
   
   #コメント削除
   def deleteComment
-    @post = Post.find_by(id: params[:id])
     @comment = Comment.find_by(id: params[:id])
     if @comment&.destroy
       flash[:alert] = "コメントを削除しました！"
