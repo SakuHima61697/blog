@@ -66,7 +66,7 @@ class BlogController < ApplicationController
       flash[:alert] = "コメントを削除しました！"
       redirect_to("/blogs")
     else
-      flash[:notice] = "コメントを削除できませんでした！"
+      flash[:alert] = "コメントを削除できませんでした！"
       redirect_to("/blogs")
     end
   end
