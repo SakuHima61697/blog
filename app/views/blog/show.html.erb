@@ -25,7 +25,9 @@
     <br></br>
     <!-- コメント欄 -->
     <h3 class="page-title">コメント欄</h3>
-    <h6 class="alert">※コメントの投稿にはログインが必要です！</h6>
+    <% if !@current_user %>
+        <h6 class="alert">※コメントの投稿にはログインが必要です！</h6>
+    <% end %>
     <br></br>
     <div class="comment-page">
         <% if @comments %>
