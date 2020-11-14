@@ -86,6 +86,7 @@ class UserController < ApplicationController
       flash[:notice] = "ユーザー情報を更新しました！"
       redirect_to("/blogs/user/#{@user.id}")
     else
+      flash[:alert] = "※ユーザー情報を更新出来ませんでした"
       render("user/edit")
     end
   end
