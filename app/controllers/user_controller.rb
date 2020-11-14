@@ -77,9 +77,9 @@ class UserController < ApplicationController
   #ユーザー編集処理
   def update
     @user = User.find_by(id: params[:id])
-    @posts = Post.where(user_id: session[:user_id])
+    @posts = Post.where(user_id: @user.id)
     
-    if @user.update(user_params)
+    if @user.update(**user_params)
       if @posts
         @posts.update_all(user_name: @user.name)
       end
