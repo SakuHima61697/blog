@@ -79,7 +79,7 @@ class UserController < ApplicationController
     @user = User.find_by(id: params[:id])
     @posts = Post.where(user_id: @user.id)
     
-    if @user.update(user_params)
+    if @user.update!(user_params)
       if @posts
         @posts.update_all(user_name: @user.name)
       end
@@ -124,7 +124,7 @@ class UserController < ApplicationController
   
   #ユーザーパラメータ
   def user_params
-    params.permit(:name, :email, :url, :content, :password, :password_confirmation, :image)
+    params.require(:user).permit(:name, :email, :url, :content, :password, :password_confirmation, :image)
   end
   
   #ブログアクセス権限(管理者)
