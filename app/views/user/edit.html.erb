@@ -2,7 +2,7 @@
     <h1 class="page-title">ユーザー情報編集</h1>
     <br></br>
     <!--ユーザー編集フォーム-->
-    <%= form_with @user, url: {controller: "user", action: "update"}, multipart: true do |form| %>
+    <%= form_with model: @user, multipart: true do |form| %>
     <div class="user-edit-form">
         <%= form.label :name %>
         <%= form.text_field :name, @user.name %>
