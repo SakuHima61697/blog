@@ -47,16 +47,6 @@
         <%= paginate @comments %>
         <br></br>
     <% end %>
-    <!--エラーメッセージ-->
-    <% if @comment %>
-        <% @comment.errors.full_messages.each do |message| %>
-            <div class="form-error">
-                <ul>
-                    <li><%= message %></li>
-                </ul>
-            </div>
-        <% end %>
-    <% end %>
     <!-- コメント入力欄 -->
     <% if @current_user %>
         <%= form_with model: @comment do |form| %>
