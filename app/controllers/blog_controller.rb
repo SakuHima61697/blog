@@ -60,13 +60,14 @@ class BlogController < ApplicationController
   
   #コメント削除
   def deleteComment
+    @post = Post.find_by(id: params[:id])
     @comment = Comment.find_by(id: params[:id])
     if @comment&.destroy
       flash[:alert] = "コメントを削除しました！"
-      redirect_to("/blogs/")
+      redirect_to("/blogs/show/#{@post.id}")
     else
       flash[:notice] = "コメントを削除できませんでした！"
-      redirect_to("/blogs")
+      redirect_to("/blogs/show/#{@post.id}")
     end
   end
 
