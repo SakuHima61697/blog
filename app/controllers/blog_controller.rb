@@ -51,7 +51,10 @@ class BlogController < ApplicationController
     post_id: @post.id)
     if @comment.save
       flash[:notice] = "コメントを入力しました！"
-      redirect_to("/blogs")
+      redirect_to("/blogs/show/#{@post.id}")
+    else
+      flash[:alert] = "コメントを入力できませんでした！"
+      render("blog/show")
     end
   end
   
