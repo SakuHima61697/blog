@@ -54,7 +54,7 @@
     <!-- コメント入力欄 -->
     <% if @current_user %>
         <%= form_with model: @comment do |form| %>
-            <%= form.text_area :content, size: 40 %>
+            <%= form.text_area :content, size: "40×20" %>
             <%= form.submit "投稿" %>
         <% end %>
         <br></br>
