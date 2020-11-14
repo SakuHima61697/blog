@@ -2,29 +2,29 @@
     <h1 class="page-title">ユーザー情報編集</h1>
     <br></br>
     <!--ユーザー編集フォーム-->
-    <%= form_with @user, url: {controller: "user", action: "update"}, multipart: true do |form| %>
+    <%= form_with @user, url: {controller: "user", action: "update"}, {multipart: true} do |form| %>
         <div class="user-edit-form">
             <%= form.label :name %>
-            <%= form.text_field :name, @user.name %>
+            <%= form.text_field :name %>
             <br></br>
             <%= form.label :email %>
-            <%= form.email_field :email, @user.email %>
+            <%= form.email_field :email %>
             <br></br>
             <%= form.label :url, "URL(Twitterなど)" %>
-            <%= form.text_field :url, @user.url %>
+            <%= form.text_field :url %>
             <br></br>
             <%= form.label :content %>
-            <%= form.text_area :content, @user.content %>
+            <%= form.text_area :content %>
             <br></br>
             <%= form.label :password %>
-            <%= form.password_field :password, @user.password %>
+            <%= form.password_field :password %>
             <br></br>
             <%= form.label :password_confirmation, "パスワード(確認用)" %>
-            <%= form.password_field :password_confirmation, @user.password_confirmation %>
+            <%= form.password_field :password_confirmation %>
             <br></br>
             <%= form.label :image, "プロフィール画像" %>
             <div class="edit-profile-img">
-                <%= form.file_field :image, @user.image %>
+                <%= form.file_field :image %>
             </div>
             <br></br>
             <%= form.submit "更新", class: "btn btn-primary" %>
