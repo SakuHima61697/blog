@@ -6,7 +6,7 @@ class BlogController < ApplicationController
   
   #ブログ一覧ページ
   def index
-    @post_ransack = Post.ransack(params[:q])
+    @post_ransack = Post.ransack(params[:post_ransack])
     @posts = @post_ransack.result(distinct: true).page(params[:page]).per(10)
   end
 
