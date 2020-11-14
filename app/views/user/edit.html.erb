@@ -2,9 +2,9 @@
     <h1 class="page-title">ユーザー情報編集</h1>
     <br></br>
     <!--ユーザー編集フォーム-->
-    <%= form_with(@user, url: {controller: "user", action: "update"}, {multipart: true}) do |form| %>
+    <%= form_with model: @user, url: {controller: "user", action: "update"}, {multipart: true} do |form| %>
     <div class="user-edit-form">
-        <%= form.label :name%>
+        <%= form.label :name %>
         <%= form.text_field :name, @user.name %>
         <br></br>
         <%= form.label :email %>
@@ -28,11 +28,11 @@
         </div>
         <br></br>
         <%= form.submit "更新", class: "btn btn-primary" %>
-    <% end %>
     </div>
+    <% end %>
         <br></br>
         <div class="user-edit-link">
             <%= link_to("ユーザー詳細画面へ戻る", "/blogs/user/#{@user.id}", class: "btn btn-success") %>
         </div>
+    <br></br>
 </div>
-<br></br>
