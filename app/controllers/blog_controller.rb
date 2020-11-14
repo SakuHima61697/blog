@@ -50,10 +50,10 @@ class BlogController < ApplicationController
     user_id: session[:user_id],
     post_id: @post.id)
     if @comment.save
-      flash[:notice] = "コメントを入力しました！"
+      flash[:notice] = "コメントを投稿しました！"
       redirect_to("/blogs/show/#{@post.id}")
     else
-      flash[:alert] = "コメントを入力できませんでした！"
+      flash[:alert] = "コメントを投稿できませんでした！"
       redirect_to("/blogs/show/#{@post.id}")
     end
   end
