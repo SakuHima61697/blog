@@ -46,7 +46,7 @@ Rails.application.routes.draw do
   
   #ユーザー編集ページ
   get "blogs/user/edit/:id" => "user#edit"
-  patch "blogs/user/edit/:id" => "user#update"
+  post "blogs/user/edit/:id" => "user#update"
   
   #ユーザー削除ページ
   get "blogs/user/delete/:id" => "user#delete"
