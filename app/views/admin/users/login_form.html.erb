@@ -9,7 +9,7 @@
         <% end %>
     <br></br>
     <!--ログインフォーム-->
-    <%= form_with model: @user, url:{controller: "users", action: "login"}, local: true, method: :post, scope: :session do |form| %>
+    <%= form_with model: @user, url:{controller: "admin/users", action: "login"}, local: true, method: :post do |form| %>
         <div class="login-form">
             <%= form.label :email, "管理者メールアドレス" %>
             <%= form.text_field :email %>
