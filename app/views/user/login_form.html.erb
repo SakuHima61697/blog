@@ -12,11 +12,11 @@
     <!--ログインフォーム-->
     <%= form_with model: @user, url: {controller: "user", action: "login"}, local: true, method: :post do |form| %>
         <div class="login-form">
-            <%= form.label :email %>
-            <%= form.text_field :email, "メールアドレス" %>
+            <%= form.label :email, "メールアドレス" %>
+            <%= form.text_field :email %>
             <br></br>
-            <%= form.label :password %>
-            <%= form.password_field :password, "パスワード" %>
+            <%= form.label :password, "パスワード" %>
+            <%= form.password_field :password %>
             <br></br>
             <%= form.submit "ログイン", class: "btn btn-primary" %>
         </div>
