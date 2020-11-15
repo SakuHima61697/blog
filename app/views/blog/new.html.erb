@@ -10,19 +10,19 @@
         </div>
     <% end %>
     <!--ブログ作成フォーム-->
-    <%= form_tag({controller: "blog", action: "create"}) do %>
-            <%= label_tag :タイトル%>
-            <%= text_field_tag :title %>
+    <%= form_with model: @post, url: {controller: "blog", action: "create"}, local: true, method: :post do |form| %>
+            <%= form.label :title%>
+            <%= form.text_field :title %>
             <br></br>
-            <%= label_tag :ジャンル%>
-            <%= text_field_tag :genre %>
+            <%= form.label :genre%>
+            <%= form.text_field :genre %>
             <br></br>
             <p class="alert">※画像サイズによっては、画像が正しく表示されないことがあります。</p>
             <div class="blog-content-form">
-                <%= rich_text_area_tag :content %>
+                <%= form.rich_text_area :content %>
             </div>
             <br></br>
-            <%= submit_tag "ブログ作成", class: "btn btn-primary" %>
+            <%= form.submit "ブログ作成", class: "btn btn-primary" %>
     <% end %>
         <br></br>
     <%= link_to("ブログ一覧に戻る", "/blogs", class: "btn btn-success") %>

@@ -19,9 +19,7 @@ class BlogController < ApplicationController
 
   #ブログ作成ページ
   def create
-    @post = Post.new(title: params[:title], 
-    genre: params[:genre],
-    content: params[:content], 
+    @post = Post.new(**post_params, 
     user_id: session[:user_id],
     user_name: session[:user_name])
     
@@ -86,7 +84,7 @@ class BlogController < ApplicationController
       flash[:notice] = "編集が完了しました！"
       redirect_to("/blogs")
     else
-      flash[:alert] = "入力し直してください"
+      flash[:alert] = "※入力し直してください"
       render("blog/update")
     end
   end
@@ -107,7 +105,7 @@ class BlogController < ApplicationController
   private
   #ブログパラメータ(アクションテキスト絡み)
     def post_params
-      params.permit(:title, :genre, :content)
+      params.require(:post).permit(:title, :genre, :content)
     end
     
   #コメントパラメータ

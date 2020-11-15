@@ -12,7 +12,7 @@ before_action :forbid_admin_login_user, {only: [:login_form, :login]}
   #ログイン処理
   def login
     @user = User.find_by(email: params[:email])
-    if @user&.authenticate(params[:password])
+    if @user && @user&.authenticate(params[:password])
       session[:user_id] = @user.id
       session[:admin] = @user.admin
       flash[:notice] = "ログインしました！"
@@ -55,6 +55,11 @@ before_action :forbid_admin_login_user, {only: [:login_form, :login]}
   end
   
   private
+    #管理者パラメータ
+    def admin_user_params
+      params.permit :utf8, :authenticity_token, :password, :commit
+    end
+    
     #管理者アクセス制限
     def admin_user_access
       if  !@current_user || @current_user&.admin == false
