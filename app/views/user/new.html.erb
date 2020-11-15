@@ -10,7 +10,7 @@
     <!--ユーザー登録フォーム-->
     <%= form_with model: @user, url: {controller: "user", action: "create"}, multipart: true, local: true, method: :post do |form| %>
         <div class="signup-form">
-            <%= form.label :name, "ユーザー名" %>
+            <%= form.label :name %>
             <%= form.text_field :name %>
             <br></br>
             <%= form.label :email %>
