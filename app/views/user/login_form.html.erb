@@ -10,7 +10,7 @@
 
     <br></br>
     <!--ログインフォーム-->
-    <%= form_with model: @user, url: (controller: "user", action: "login"), local: true, method: :post do |form| %>
+    <%= form_with model: @user, url: {controller: "user", action: "login"}, local: true, method: :post do |form| %>
         <div class="login-form">
             <%= form.label :email %>
             <%= form.text_field :email %>
