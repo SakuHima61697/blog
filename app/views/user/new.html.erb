@@ -8,32 +8,32 @@
         </div>
     <% end %>
     <!--ユーザー登録フォーム-->
-    <%= form_tag({controller: "user", action: "create"}, {multipart: true}) do %>
+    <%= form_with model: @user, url: {controller: "user", action: "create"}, multipart: true, local: true, method: :post do |form| %>
         <div class="signup-form">
-            <%= label_tag :ユーザー名 %>
-            <%= text_field_tag :name %>
+            <%= form.label :name, "ユーザー名" %>
+            <%= form.text_field :name %>
             <br></br>
-            <%= label_tag :メールアドレス %>
-            <%= email_field_tag :email %>
+            <%= form.label :email, "メールアドレス" %>
+            <%= form.email_field :email %>
             <br></br>
-            <%= label_tag :url, "URL(Twitterなど)" %>
-            <%= text_field_tag :url %>
+            <%= form.label :url, "URL(Twitterなど)" %>
+            <%= form.text_field :url %>
             <br></br>
-            <%= label_tag :自己紹介 %>
-            <%= text_area_tag :content %>
+            <%= form.label :content, "自己紹介" %>
+            <%= form.text_area :content %>
             <br></br>
-            <%= label_tag :パスワード %>
-            <%= password_field_tag :password %>
+            <%= form.label :password, "パスワード" %>
+            <%= form.password_field :password %>
             <br></br>
-            <%= label_tag :パスワード確認用 %>
-            <%= password_field_tag :password_confirmation %>
+            <%= form.label :password_confirmation, "パスワード(確認用)" %>
+            <%= form.password_field :password_confirmation %>
             <br></br>
-            <%= label_tag :プロフィール画像 %>
+            <%= form.label :image, "プロフィール画像" %>
             <div class = "signup-profile-img" >
-                <%= file_field_tag :image, class: "signup-form-tag" %>
+                <%= form.file_field :image, class: "signup-form-tag" %>
             </div>
             <br></br>
-            <%= submit_tag "登録", class: "btn btn-primary" %>
+            <%= form.submit "登録", class: "btn btn-primary" %>
         </div>
     <% end %>
     <br></br>
