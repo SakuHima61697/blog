@@ -8,32 +8,32 @@
         </div>
     <% end %>
     <!--ユーザー登録フォーム-->
-    <%= form_with model: @user, url: {controller: "user", action: "create"}, multipart: true, local: true, method: :post do |form| %>
+    <%= form_tag({controller: "user", action: "create"}, {multipart: true}) do %>
         <div class="signup-form">
-            <%= form.label :name %>
-            <%= form.text_field :name %>
+            <%= label_tag :ユーザー名 %>
+            <%= text_field_tag :name %>
             <br></br>
-            <%= form.label :email %>
-            <%= form.email_field :email %>
+            <%= label_tag :メールアドレス %>
+            <%= email_field_tag :email %>
             <br></br>
-            <%= form.label :url, "URL(Twitterなど)" %>
-            <%= form.text_field :url %>
+            <%= label_tag :url, "URL(Twitterなど)" %>
+            <%= text_field_tag :url %>
             <br></br>
-            <%= form.label :content, "自己紹介" %>
-            <%= form.text_area :content %>
+            <%= label_tag :自己紹介 %>
+            <%= text_area_tag :content %>
             <br></br>
-            <%= form.label :password, "パスワード" %>
-            <%= form.password_field :password %>
+            <%= label_tag :パスワード %>
+            <%= password_field_tag :password %>
             <br></br>
-            <%= form.label :password_confirmation, "パスワード(確認用)" %>
-            <%= form.password_field :password_confirmation %>
+            <%= label_tag :パスワード確認用 %>
+            <%= password_field_tag :password_confirmation %>
             <br></br>
-            <%= form.label :image, "プロフィール画像" %>
+            <%= label_tag :プロフィール画像 %>
             <div class = "signup-profile-img" >
-                <%= form.file_field :image, class: "signup-form-tag" %>
+                <%= file_field_tag :image, class: "signup-form-tag" %>
             </div>
             <br></br>
-            <%= form.submit "登録", class: "btn btn-primary" %>
+            <%= submit_tag "登録", class: "btn btn-primary" %>
         </div>
     <% end %>
     <br></br>
