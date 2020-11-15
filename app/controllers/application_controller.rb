@@ -8,12 +8,12 @@ class ApplicationController < ActionController::Base
     end
 
   #ログイン確認
-    #def authenticate_user
-    #   if @current_user == nil
-    #      flash[:alert] = "ログインが必要です！"
-    #      redirect_to("/blogs/login")
-    #   end
-    #end
+    def authenticate_user
+       if @current_user == nil
+          flash[:alert] = "ログインが必要です！"
+          redirect_to("/blogs/login")
+       end
+    end
     
   #ログイン済み確認
     def forbid_login_user
