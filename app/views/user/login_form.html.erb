@@ -13,10 +13,10 @@
     <%= form_with model: @user, url: {controller: "user", action: "login"}, local: true, method: :post do |form| %>
         <div class="login-form">
             <%= form.label :email %>
-            <%= form.text_field :email %>
+            <%= form.text_field :email, "メールアドレス" %>
             <br></br>
             <%= form.label :password %>
-            <%= form.password_field :password %>
+            <%= form.password_field :password, "パスワード" %>
             <br></br>
             <%= form.submit "ログイン", class: "btn btn-primary" %>
         </div>
