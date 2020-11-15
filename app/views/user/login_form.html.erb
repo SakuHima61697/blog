@@ -10,15 +10,15 @@
 
     <br></br>
     <!--ログインフォーム-->
-    <%= form_tag(controller: "user", action: "login") do %>
+    <%= form_with model: @user, url: (controller: "user", action: "login"), local: true, method: :post do |form| %>
         <div class="login-form">
-            <%= label_tag :メールアドレス %>
-            <%= text_field_tag :email, @email %>
+            <%= form.label :email %>
+            <%= form.text_field :email %>
             <br></br>
-            <%= label_tag :パスワード %>
-            <%= password_field_tag :password, @password %>
+            <%= form.label :password %>
+            <%= form.password_field :password %>
             <br></br>
-            <%= submit_tag :ログイン, class: "btn btn-primary" %>
+            <%= form.submit "ログイン", class: "btn btn-primary" %>
         </div>
     <% end %>
     <br></br>
