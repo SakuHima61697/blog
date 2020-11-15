@@ -11,7 +11,7 @@ before_action :forbid_admin_login_user, {only: [:login_form, :login]}
 
   #ログイン処理
   def login
-    @user = User.find_by(email: params[:email])
+    @user = User.find_by!(email: params[:email])
     if @user && @user&.authenticate(params[:password])
       session[:user_id] = @user.id
       session[:admin] = @user.admin
