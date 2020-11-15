@@ -15,10 +15,7 @@ class UserController < ApplicationController
     @user = User.new
     @user.image = "default.jpg"
     
-    @user = User.new(name: params[:name], email: params[:email], 
-    url: params[:url], content: params[:content],
-    password: params[:password], password_confirmation: params[:password_confirmation], 
-    image: params[:image])
+    @user = User.new(user_params)
     
     if @user.save
       session[:user_id] = @user.id
@@ -26,7 +23,7 @@ class UserController < ApplicationController
       flash[:notice] = "ユーザー登録が完了しました！"
       redirect_to("/blogs")
     else
-      render("user/new")
+      render :new
     end
   end
   

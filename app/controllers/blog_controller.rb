@@ -4,6 +4,8 @@ class BlogController < ApplicationController
   before_action :ensure_correct_user_edit, {only: [:update, :edit, :delete, :destroy]}
   before_action :ensure_admin_access, {only: [:index, :show, :new, :create, :update, :edit, :delete, :destroy, :newComment, :deleteComment]}
   
+  
+  
   #ブログ一覧ページ
   def index
     @post_ransack = Post.ransack(params[:q])

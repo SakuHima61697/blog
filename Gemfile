@@ -74,6 +74,7 @@ gem 'rubocop'
 gem 'rubocop-rails'
 
 gem 'fog-aws'
+gem 'pry-rails'
 
 gem "aws-sdk-s3", require: false
 
