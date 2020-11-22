@@ -71,7 +71,6 @@
 .blog-show {
     text-align: center;
     color: darkgreen;
-    width: 100%;
 }
 //ブログコンテンツ
 .blog-content {
@@ -94,6 +93,7 @@
     display: inline-block;
     text-align: left;
     width: 80%;
+    word-wrap: break-word;
 }
 //コメント
 .comment {
