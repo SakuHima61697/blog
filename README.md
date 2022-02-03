@@ -1,4 +1,4 @@
-# youchika41781/blog
+# SakuHima61697/blog
  
 会員制ブログ投稿サイト
  
@@ -78,4 +78,4 @@ bundle install
  
 # Author
  
-* youchika41781
+* SakuHima61697
